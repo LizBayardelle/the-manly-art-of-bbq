@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="text-center row" style="margin: 80px 0 20px 0">
+    <h1 style="font-size: 10vh">Checkout</h1>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: red">1</h1>
+        <h4><strong>Address</strong></h4>
+      </div> <!-- col -->
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: grey">2</h1>
+        <h4 style="color: grey">Shipping</h4>
+      </div> <!-- col -->
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: grey">3</h1>
+        <h4 style="color: grey">Billing</h4>
+      </div> <!-- col -->
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: grey">4</h1>
+        <h4 style="color: grey">Confirmation</h4>
+      </div> <!-- col -->
+
+      <div class="row">
+        <hr class="col-xs-6 col-xs-push-3" />
+      </div>
+
+      <h2>Where should we send this awesome stuff?</h2>
+    </div> <!-- row -->
+  </div> <!-- row -->
+
+  <div class="row text-center">
+    <%= simple_form_for(@user, url: user_path(@user), html: { method: :put }) do |f| %>
+      <div class="form-inputs text-left">
+        <div class="form-group col-sm-6">
+          <%= f.label :street_address_1 %>
+          <%= f.text_field :street_address_1, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-6">
+          <%= f.label :street_address_2 %>
+          <%= f.text_field :street_address_2, class: "form-control" %>
+        </div>
+        <div class="form-group col-sm-6">
+          <%= f.label :city %>
+          <%= f.text_field :city, class: "form-control" %>
+        </div><div class="form-group col-sm-3 col-xs-6">
+          <%= f.label :state %>
+          <%= f.text_field :state, class: "form-control" %>
+        </div><div class="form-group col-sm-3 col-xs-6">
+          <%= f.label :zip %>
+          <%= f.text_field :zip, class: "form-control" %>
+        </div><div class="form-group col-sm-6">
+          <%= f.label :provence %>
+          <%= f.text_field :provence, class: "form-control" %>
+        </div><div class="form-group col-sm-6">
+          <%= f.label :country %>
+          <%= f.text_field :country, class: "form-control" %>
+        </div><div class="form-group">
+          <%= f.hidden_field :has_shipping, value: true %>
+        </div>
+      </div> <!-- form inputs -->
+        <%= f.button :submit, "Calculate Shipping", class: "btn btn-manly" %>
+    <% end %>
+  </div> <!-- shipping row -->
+
+</div> <!-- container -->
+
+<div class="row">
+  <hr class="col-xs-6 col-xs-push-3" />
+</div>
+
+<%= render "layouts/footer" %>

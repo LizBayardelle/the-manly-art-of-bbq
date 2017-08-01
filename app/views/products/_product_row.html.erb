@@ -1,0 +1,36 @@
+<div class="hover-well">
+
+  <div class="row">
+    <div class="col-sm-3 text-center">
+      <%= image_tag product.product_image.url, alt: product.name, style: "max-width: 100%; max-height: 200px" %>
+    </div>
+
+    <div class="col-sm-5">
+      <h4><strong><%= product.name %></strong></h4>
+      <p><%= product.short_description %></p>
+      <% if current_user && current_user.admin %>
+        <p><small><%= link_to "Edit Product", edit_product_path(product) %>  |  <%= link_to 'Delete Product', product_path(product),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></small></p>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+
+      <%= form_for order_item, remote: true do |f| %>
+        <h4 class="text-right">Price: <span style="color: green"><%= number_to_currency product.price %></span></h4>
+        <div class="row text-right" style="margin: 0 0 15px 0">
+          <% if product.has_size %>
+            <%= f.select :size, product.size_options.split(",") %>
+          <% end %>
+        </div>
+        <div class="input-group">
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          <div class="input-group-btn">
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.submit "Add to Cart", class: "btn btn-manly add_to_cart", style: "margin: 0" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

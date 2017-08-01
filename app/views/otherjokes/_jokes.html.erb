@@ -1,0 +1,31 @@
+<% @jokes.each do |joke| %>
+  <div class="row">
+
+    <div class="text-center col-xs-1">
+      <% if current_user %>
+        <div class="width: 100%"><%= button_to vote_up_joke_path(joke), method: :post, remote: true, class: "js-upvote no-focus", style: "padding: 0; background-color: transparent; border: none" do %><i class="icon ion-thumbsup" style="font-size: 25px"></i><% end %></div>
+        <div class="width: 100%"><h4 id="joke_<%= joke.id %>_votes" style="margin-top: 0; margin-bottom: 0"><strong><%= joke.plusminus %></strong></h4></div>
+        <div class="width: 100%"><%= button_to vote_down_joke_path(joke), method: :post, remote: true, class: "js-downvote no-focus", style: "padding: 0; background-color: transparent; border: none" do %><i class="icon ion-thumbsdown" style="font-size: 25px"></i></span><% end %></div>
+      <% else %>
+        <div class="width: 100%"><%= link_to new_user_session_path, method: :post do %><i class="icon ion-thumbsup" style="font-size: 25px"></i><% end %></div>
+        <div class="width: 100%"><h4 style="margin-top: 0; margin-bottom: 0"><strong><%= joke.plusminus %></strong></h4></div>
+        <div class="width: 100%"><%= link_to new_user_session_path, method: :post do %><i class="icon ion-thumbsdown" style="font-size: 25px"></i><% end %></div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-11"> <!-- non vote container -->
+
+      <h2 id="joke-title" style="margin-top: 0px">
+        <%= joke.title %>
+      </h2>
+
+      <p id="joke-body"><%= raw(joke.body) %></p>
+      <h3><strong><span style="font-family: 'Covered By Your Grace', cursive">As Told by <%= joke.user.first_name %></span></strong></h3>
+    </div> <!-- non vote container -->
+  </div> <!-- joke row -->
+
+  <div class="row text-center">
+    <hr style="width: 50%; margin-top: 30px; margin-bottom: 30px">
+  </div> <!-- row -->
+
+<% end %>

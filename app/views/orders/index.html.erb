@@ -1,0 +1,62 @@
+<%= content_for :page_title, "Manly Roster" %>
+<% set_meta_tags description: 'Here be all the swarthy seafolk...',
+                 keywords: 'roster, user, information, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="row" style="height: 100px"></div>
+
+<div class="container">
+  <div class="text-center row">
+    <h1 class="text-center">All Orders</h1>
+    <p><%= link_to "Back to My Mancard", user_path(current_user) %></p>
+  </div> <!-- mancard area -->
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="text-center">
+    <i class="icon ion-clock" style="font-size: 20px"></i> = Mark Order as Placed<br />
+    <i class="icon ion-map" style="font-size: 20px"></i> = Mark Order as Shipped<br />
+    <i class="icon ion-close-round" style="font-size: 20px"></i> = Delete Order<br />
+  </div>
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <table class="table">
+    <tr>
+      <th class="text-center">#</th>
+      <th>Customer</th>
+      <th>Date Placed</th>
+      <th class="text-center">Amount</th>
+      <th class="text-center">Order Status</th>
+      <th class="text-center">Change Order Status</th>
+    </tr>
+    <% @orders.each do |order| %>
+      <% if order.date_placed != nil %>
+          <tr>
+            <td><%= link_to order.id, order_path(order)%></td>
+            <td><%= order.user.first_name %> <%= order.user.last_name %><br /><%= mail_to order.user.email %></td>
+            <td><%= order.date_placed.strftime('%a, %b %d, %G, %T %Z') %></td>
+            <td><%= number_to_currency(order.total) %></td>
+            <td><%= order.order_status.name %></td>
+            <td>
+              <%= link_to mark_as_placed_path(order), method: :put, data: {confirm: "Are you sure you want to mark this order as placed?"} do %>
+                <i class="icon ion-clock" style="font-size: 20px"></i>
+              <% end %>
+              <%= link_to mark_as_shipped_path(order), method: :put, data: {confirm: "Are you sure you want to mark this order as shipped?"} do %>
+                <i class="icon ion-map" style="font-size: 20px"></i>
+              <% end %>
+              <%= link_to mark_as_cancelled_path(order), method: :put, data: {confirm: "Are you sure you want to cancel this order?"} do %>
+                <i class="icon ion-close-round" style="font-size: 20px"></i>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+</div> <!-- container -->

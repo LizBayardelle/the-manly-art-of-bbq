@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Man Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway" rel="stylesheet">
+</head>
+<body style="background-color: #e6e6e6">
+<% set_meta_tags description: 'Before you enter the fortress of solitude, we need to do a quick test of your manliness. Hold still. It will not hurt.',
+                 keywords: 'man, test, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="row" style="height: 100px"></div>
+
+<div class="hover-well col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2">
+
+  <h1>Answer the following:</h1>
+  <% @random_partial = 'man_tests/test' + rand(7).round.to_s %>
+  <%= render partial: @random_partial %>
+</div> <!-- hover-well -->
+
+</body>
+</html>

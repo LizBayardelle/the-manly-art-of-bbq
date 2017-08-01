@@ -1,0 +1,17 @@
+<%= form_for @man_test do |f| %>
+    <h3>
+      <%= f.label "Which type of TV show should men NOT watch?" %><br>
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Shows where someone gets a rose", value: 1 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Shows with nudity", value: 0 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Shows where things blow up", value: 0 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Shows where there's a dog", value: 0  %><br>
+    </h3>
+      <div class="text-center">
+        <%= f.submit "Confirm I'm a Man", class: "btn-boring" %>
+      </div>
+    </h3>
+<% end %>

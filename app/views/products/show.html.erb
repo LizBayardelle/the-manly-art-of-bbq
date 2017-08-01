@@ -1,0 +1,27 @@
+<%= content_for :page_title, @product.name %>
+<% set_meta_tags description: 'Nothing says certified griller like some Manly Art of BBQ swag.',
+  keywords: 'apron, glove, spatula, tongs, gear, supplies, buy, BBQ, barbecue, manly, art',
+  site: 'The Manly Art of BBQ'
+%>
+
+<div class="row" style="height: 100px"></div>
+
+<div class="container text-center">
+  <% if @product.default_image %>
+    <%= image_tag @product.default_image.path, width: '200px' %>
+  <% end %>
+
+  <h2><%= @product.name %></h2>
+
+  <p><%= @product.short_description %></p>
+  <p>
+    <b><%= number_to_currency @product.price %></b><br>
+    <%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
+  </p>
+
+  <hr>
+  <%= simple_format @product.description %>
+  <hr>
+
+  <p><%= link_to "Back to list", products_index_path %></p>
+</div> <!-- page container -->

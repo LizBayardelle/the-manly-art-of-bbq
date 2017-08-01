@@ -1,0 +1,94 @@
+<%= content_for :page_title, 'Jokes' %>
+<% set_meta_tags description: 'An important component of manliness is the art of telling a great joke. Stock up on your comedic material here.',
+                 keywords: 'jokes, funny, men, mixed company, snappy comebacks, kids, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div id='container'>
+ <div id="group1">
+   <div class="background">
+      <div class="hero-image-row">
+        <div class="hero-image-outer text-center">
+          <div class="hero-image-inner text-center">
+            <%= image_tag 'JokesMenu.jpg', class: "hero-image",alt: "Guys laughing at an obviously hilarious joke while barbecuing." %>
+          </div> <!-- hero-image-inner -->
+        </div> <!-- hero-image-inner -->
+      </div> <!-- row -->
+
+      <div class="overlap-hero-image" style="margin-top: -380px !important">
+        <div class="row">
+          <div class="container">
+            <div class="col-md-8">
+              <h1>Jokes.</h1>
+              <h4>Humor is one of the most powerful forces in the world.</h3>
+              <h4>Good humor can do everything from keeping you from getting your ass kicked to making you the most popular uncle at a family reunion. Bad humor does just the opposite.</h4>
+              <h4><strong>Master the manly art of joke telling.</strong></h3>
+            </div> <!-- column -->
+          </div> <!-- row -->
+          <div class="row text-center">
+            <div><%= link_to "Have a good joke?  We're all ears...", new_joke_path, class: "hvr-grow btn btn-ghost" %></div>
+            <% if current_user && current_user.admin %>
+              <p style="font-weight: bolder"><%= link_to "Approve/Reject New Submissions", jokes_path %></p>
+            <% end %>
+          </div> <!-- row -->
+        </div> <!-- container -->
+      </div> <!-- overlap-hero-image -->
+    </div> <!-- background -->
+
+    <div class="foreground">
+      <div class="row" style="background-color: white">
+        <div class="container" style="margin-top: 60px">
+          <%= link_to otherjokes_men_path do %>
+            <div class="text-center col-sm-3 icon-text-segment">
+              <%= image_tag 'icon_men.jpg' %>
+              <h2>For Men Only</h2>
+              <p>Some things are for men.  Manly men.</p>
+              <p>These jokes are for those golf buddies that you love but wouldn't trust around your family for ten seconds.</p>
+              <p>Unsavoriness lies within.</p>
+            </div>
+          <% end %>
+
+          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+
+          <%= link_to otherjokes_mixed_path do %>
+            <div class="text-center col-sm-3 icon-text-segment">
+              <%= image_tag 'icon_mixed.jpg' %>
+              <h2>For Mixed Company</h2>
+              <p>Against some of our wishes, we aren't always on the golf course.</p>
+              <p>These jokes will win you props instead of glares when you're in mixed company.</p>
+              <p>Entertain away, my friend.</p>
+            </div>
+          <% end %>
+
+          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+
+          <%= link_to otherjokes_kids_path do %>
+            <div class="text-center col-sm-3 icon-text-segment">
+              <%= image_tag 'icon_kids.jpg' %>
+              <h2>Especially For Kids</h2>
+              <p>Let's face it, "dad jokes" have gotten a bad rap.</p>
+              <p>Here, we'll equip you with some humor that will more giggles and fewer groans.</p>
+              <p>Warning: some of them are pretty punny.</p>
+            </div>
+          <% end %>
+
+          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+
+          <%= link_to otherjokes_comeback_path do %>
+            <div class="text-center col-sm-3 icon-text-segment">
+              <%= image_tag 'icon_comeback.jpg' %>
+              <h2>Snappy Comebacks</h2>
+              <p>We've all been there.</p>
+              <p>Someone says something that should earn them a solid "face five" (if you catch our drift).</p>
+              <p>Instead of wasting perfectly good bail money, give these a shot.</p>
+            </div>
+          <% end %>
+
+          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+
+        </div> <!-- container -->
+      </div> <!-- row -->
+
+      <%= render "layouts/footer" %>
+    </div> <!-- foreground -->
+  </div> <!-- id #parallax group 1 -->
+</div> <!-- id #container -->

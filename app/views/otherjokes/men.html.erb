@@ -1,0 +1,41 @@
+<%= content_for :page_title, 'Jokes for Men Only' %>
+<% set_meta_tags description: 'These jokes are for the golf course, poker room, locker room, and other places women dare not venture.',
+                 keywords: 'men, jokes, funny, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag 'BackgroundMen.jpg', class: "hero-image",alt: "Guys laughing at an obviously hilarious joke while barbecuing." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
+
+
+<div class="overlap-hero-image" style="margin-top: -185px !important; height: 185px">
+  <div class="row">
+    <div class="text-center">
+      <h1>Jokes for Men</h1>
+    </div> <!-- text-center -->
+  </div> <!-- row -->
+</div> <!-- overlap-hero-image -->
+
+<div class="row transparent-box">
+	<div class="text-center col-xs-12">
+   	 	 <h3 style="margin-top: 0px; font-weight: bolder">Looking for other jokes?<br>
+   		 For Men | <%= link_to "Mixed Company", otherjokes_mixed_path %> | <%= link_to "Kids", otherjokes_kids_path %> | <%= link_to "Snappy Comebacks", otherjokes_comeback_path %>
+	</div> <!-- other categories -->
+</div> <!-- row -->
+
+<div class="container" style="margin-top: 20px">
+
+  <div class="joke-container">
+    
+    <%= render "jokes" %>
+
+    <div class="text-center" style="height: 40px">
+      <%= link_to "Submit a New Joke", new_joke_path, class: "hvr-grow btn-manly", style: "color: white" %>
+    </div> <!-- text-center -->
+
+  </div> <!-- joke container -->
+</div> <!-- container -->

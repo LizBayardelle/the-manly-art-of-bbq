@@ -1,0 +1,39 @@
+<footer style="background-color: white">
+  <div class="row" style="height: 320px">
+    <div class="col-sm-4 text-center">
+      <%= image_tag 'Logo.png', style: "margin-top: 40px !important; width: 225px; margin: 10px;" %>
+    </div> <!-- logo column -->
+
+    <div class="col-sm-4">
+      <div class="hidden-xs" style="height: 60px"></div>
+      <h2 class="text-center comment" style="margin-top: 15px; margin-left: 50px; margin-right: 50px; margin-bottom: 40px; padding-top: 20px; padding-bottom: 20px; border-top: thick solid red; border-bottom: thick solid red !important">Helping Men Be Men</h2>
+      <a href="http://www.linchpinindustries.com" target="_blank" style="text-decoration: none">
+        <div class="text-center" style="margin-bottom: 20px">
+          <p style="margin-bottom: 0; font-weight: 200">Website by
+          <%= image_tag "lpi_logo_rect.png", style: "height: 30px; width: auto; margin-left: 5px" %></p>
+        </div> <!--lpi -->
+      </a>
+    </div> <!-- men be men column -->
+
+    <div class="col-sm-4" style="height: 320px; position: relative">
+      <%= image_tag "remote-control-menu.png", style: "position: absolute; bottom: 0; right: 30px", class: "hidden-xs", usemap: "#image-map", alt: "Remote control menu.  Yes, you get to hold it." %>
+      <%= image_tag "remote-control-menu.png", style: "position: absolute; display: block; bottom: 0; left: 0; right: 0; margin: auto", class: "visible-xs", usemap: "#image-map", alt: "Remote control menu.  Yes, you get to hold it." %>
+    </div> <!-- remote column -->
+
+    <map name="image-map">
+      <% if current_user %>
+        <area target="" alt="Sign Out" title="Sign Out" href="<%= url_for destroy_user_session_path %>" coords="177,85,121,54" shape="rect">
+        <area target="" alt="My Mancard" title="My Mancard" href="<%= url_for user_path(current_user) %>" coords="64,148,24" shape="circle">
+      <% else %>
+        <area target="" alt="Sign In" title="Sign In" href="<%= url_for new_user_session_path %>" coords="121,51,177,87" shape="rect">
+        <area target="" alt="My Mancard" title="My Mancard" href="<%= url_for new_user_session_path %>" coords="64,148,24" shape="circle">
+      <% end %>
+        <area target="" alt="BBQ" title="BBQ" href="<%= url_for home_bbq_path %>" coords="148,143,26" shape="circle">
+        <area target="" alt="Man Rules" title="Man Rules" href="<%= url_for rules_path %>" coords="234,144,27" shape="circle">
+        <area target="" alt="Lifehacks" title="Lifehacks" href="<%= url_for home_lifehacks_path %>" coords="66,230,26" shape="circle">
+        <area target="" alt="Jokes" title="Jokes" href="<%= url_for home_jokes_path %>" coords="148,223,27" shape="circle">
+        <area target="" alt="Man Gear" title="Man Gear" href="<%= url_for products_path %>" coords="235,228,26" shape="circle">
+    </map>
+  </div> <!-- footer row -->
+
+</footer>

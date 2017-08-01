@@ -1,0 +1,61 @@
+<%= content_for :page_title, 'Memory Enhancer' %>
+<% set_meta_tags description: 'Have trouble remembering things? Fear not! Here is everything you need to know.',
+                 keywords: 'memory, help, remind, event, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'memory_man.png', class: "slideRight", style: "width: 60%; right: 0; bottom: 0; position: absolute; visibility: hidden" %>
+
+<div class="row" style="height: 125px"></div>
+
+<div class="col-xs-12" style="background-color: rgba(255,255,255,0.7)">
+  <h1 class="text-center" style="margin-bottom: 15px">Your External Memory</h1>
+  <% if @reminders.count == 0 %>
+    <h4>If you don't trust us, we can't help you...</h4>
+  <% else %>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Thing to Remember</th>
+        <th>Repeats?</th>
+        <th>Gift Needed?</th>
+        <th>Next Reminder</th>
+      </tr>
+      <% @reminders.each do |o| %>
+        <tr>
+          <td>
+            <%= o.event_date.to_date.try(:to_formatted_s, :long) %>
+          </td>
+          <td>
+            <%= link_to reminder_path(o), style: "color: black" do %>
+              <strong><%= o.name %></strong>
+            <% end %>
+            <%= link_to edit_reminder_path(o) do %>
+              <span class="glyphicon glyphicon-edit" style="margin: 0" aria-hidden="true"></span>
+            <% end %>
+            <%= link_to reminder_path(o), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-remove" style="margin: 0" aria-hidden="true"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= o.repeating %>
+          </td>
+          <td>
+            <% if o.gift %>
+              Yup.
+            <% else %>
+              Nope!
+            <% end %>
+          </td>
+          <td>
+            <% if o.reminder %>
+              <%= o.mail_date.to_date.try(:to_formatted_s, "%m/%d/%Y") %>
+            <% else %>
+              None, you're on your own.
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  <h4 class="text-center"><%= link_to "Add to My Internet-Braintrust", new_reminder_path, class: "hvr-grow btn btn-manly" %>
+</div> <!-- container/columns -->

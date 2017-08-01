@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hark!  An order has been placed on MAB.com!</h1>
+
+     <h3 style="font-family: 'Roboto'; font-weight: 900">
+       Hello MAB Mastermind,
+     </h3>
+
+     <h3 style="font-family: 'Roboto', sans-serif">
+        A new order has been placed on your website!</h3>
+      <h3>It's time to get cracking!  When you have shipped the order, make sure to <%= link_to "mark it as shipped", root_path %> on the website so the customer can start getting stoked that it's on it's way!</h3>
+
+    <h3 style="font-family: 'Roboto', sans-serif"><strong>Congrats!</strong></h3>
+
+    <hr />
+
+    <h2 class="text-center bp50">Order #<%= @order.id %></h2>
+    <h4><strong>Placed: </strong><%= @order.date_placed.strftime('%a, %b %d, %G, %T %Z') %><br />
+    <h4><strong>Status: </strong><%= @order.order_status.name %><br />
+    <h4><strong>Shipping Method: </strong><%= @order.shipping_choice %></h4>
+    <h4><strong>Total: </strong>$<%= number_with_precision(@order.total, precision: 2) %></h4>
+
+    <h4>Items:</h4>
+    <ul>
+      <% @order.order_items.each do |item| %>
+        <li>
+          <h4><%= item.product.name %> ($<%= number_with_precision(item.product.price, precision: 2) %>)</h4>
+          <% if item.product.has_size %>
+            <p><em><%= item.size %></em></p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

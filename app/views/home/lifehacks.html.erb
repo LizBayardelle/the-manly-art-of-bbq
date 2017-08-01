@@ -1,0 +1,28 @@
+<%= content_for :page_title, 'Lifehacks' %>
+<% set_meta_tags description: 'We live to make your life easier. Here are some useful tools to cut down on your day-to-day stress.',
+                 keywords: 'lifehacks, gift helper, reminder, memory, gear, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'background_lifehacks.jpg', class: "bg", alt: "Fiery hot grill ready to cook you up some yumminess." %>
+
+<div class="row" style="padding-top: 100px; position: relative">
+  <div class="container text-center">
+    <h1 class="black-shadow" style="font-weight: bold; font-size: 70px; font-size: 10vw">LIFEHACKS</h1>
+    <div class="row">
+      <%= link_to reminders_path do %>
+        <%= image_tag 'patty_memory.png', class: "menu-patty col-xs-6 col-md-4 hvr-buzz-out", alt: "The delicious burger patty of memory enhancement" %>
+      <% end %>
+      <%= link_to home_gifthelper_path do %>
+        <%= image_tag 'patty_gift.png', class: "menu-patty col-xs-6 col-md-4 hvr-buzz-out", alt: "The delicious burger patty of a gift helper" %>
+      <% end %>
+      <%= link_to products_path do %>
+        <%= image_tag 'patty_mangear.png', class: "hidden-xs hidden-sm menu-patty col-md-4 hvr-buzz-out", alt: "The delicious burger patty of a gift helper" %>
+      <% end %>
+    </div>
+    <div class="row hidden-md hidden-lg">
+      <%= link_to products_path do %>
+        <%= image_tag 'patty_mangear.png', style: "margin-top: -75px", class: "menu-patty col-xs-6 col-xs-push-3 hvr-buzz-out", alt: "The delicious burger patty of mangear" %>
+      <% end %>
+    </div>
+  </div> <!-- container -->
+</div> <!-- row -->

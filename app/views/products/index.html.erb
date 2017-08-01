@@ -1,0 +1,28 @@
+<%= content_for :page_title, 'Manly Store' %>
+<% set_meta_tags description: 'Nothing says certified griller like some Manly Art of BBQ swag.',
+                 keywords: 'apron, glove, spatula, tongs, gear, supplies, buy, BBQ, barbecue, manly, art',
+         site: 'The Manly Art of BBQ' %>
+
+<div class="full-hero-div">
+  <%= image_tag "tablecloth.jpg", class: "full-hero-img" %>
+  <div class="overlap-full-image">
+    <div style="height: 80px"></div>
+
+    <div class="container">
+      <div class="text-center row" style="margin-bottom: 20px">
+        <h1 style="font-size: 10vh">Man Gear</h1>
+        <div class="row">
+          <p class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">So you've mastered the Manly Art of BBQ? Now it's time to brag about your ninja-like grilling prowess.</p>
+        </div> <!-- row -->
+        <div class="text-center"><%= link_to "Go to My Cart", cart_path, class: "btn btn-ghost black hvr-grow" %></div>
+      </div> <!-- row -->
+
+      <% @products.each do | product | %>
+        <%= render "product_row", product: product, order_item: @order_item %>
+      <% end %>
+
+      <div class="text-center"><%= link_to "Go to My Cart", cart_path, class: "btn btn-ghost black hvr-grow" %></div>
+
+    </div> <!-- container -->
+  </div> <!-- overlap-full-image -->
+</div> <!-- full hero div -->

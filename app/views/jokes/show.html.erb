@@ -1,0 +1,23 @@
+<%= content_for :page_title, @joke.title %>
+<% set_meta_tags description: 'Hahahaha...you guys have to hear this joke...',
+                 keywords: 'joke, funny, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="row" style="height: 100px"></div>
+
+<div class="container">
+  <h1><%= @joke.title %></h1>
+  <p><%= raw(@joke.body) %></p>
+  <h4 style="font-family: 'Covered By Your Grace', cursive; color: red">Submitted by: <%= @joke.user.first_name %></h4>
+  <strong><%= pluralize(@joke.plusminus, 'Manpoint') %> Total</strong>
+  <div>
+    <small>
+      <%= pluralize(@joke.votes_for, 'Fist Bump') %>,
+      <%= pluralize(@joke.votes_against, 'Tutu') %>
+    </small>
+  </div>
+</div> <!-- container -->
+
+<div class="text-center">
+  <%= link_to "Back", :back %> | <%= link_to "Jokes Homepage", home_jokes_path %>
+</div>

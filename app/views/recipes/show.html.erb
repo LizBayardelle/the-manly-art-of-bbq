@@ -1,0 +1,42 @@
+<%= content_for :page_title, @recipe.name %>
+<% set_meta_tags description: 'Mmmm, this recipe sounds so good I can almost smell it grilling already.',
+                 keywords: 'recipe, yum, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="text-right" style="width: 100%; overflow: hidden; direction: rtl; z-index: 0 !important; position: relative">
+  <%= image_tag 'background_recipe_show.jpg', style: "height: 100vh; mid-width: 100%" %>
+</div>
+<div class="col-xs-push-1 col-xs-10 col-md-6 transparent-box" style="overflow: scroll; margin-top: -85vh; height: 80vh; margin-bottom: 0px; padding-left: 30px; padding-right: 30px; position: relative; z-index: 100 !important">
+
+    <h1 class="text-center"><%= @recipe.name %><h1>
+    <h3 class="text-center">
+      <% if @recipe.beef %>
+        Beef.
+      <% end %>
+      <% if @recipe.chicken %>
+        Chicken.
+      <% end %>
+      <% if @recipe.fish %>
+        Fish.
+      <% end %>
+      <% if @recipe.other_meat %>
+        Other Meats.
+      <% end %>
+      <% if @recipe.veggies %>
+        Veggies.
+      <% end %>
+  </h3>
+  <h3><strong><span style="font-family: 'Covered By Your Grace', cursive">From <%= @recipe.user.first_name %>'s Grilling Playbook</span></strong></h3>
+  <%= raw(@recipe.instructions) %>
+
+  <div class="text-center">
+    <h4>
+      <% if current_user && (current_user.admin || current_user == @recipe.user) %>
+        <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %> |
+      <% end %>
+      <%= link_to "Back", :back %> | <%= link_to "Recipe Home", home_bbq_path %>
+    </h4>
+  </div>
+
+</div> <!-- transparent box -->

@@ -1,0 +1,56 @@
+<%= content_for :page_title, 'Gift Helper' %>
+<% set_meta_tags description: 'Need to find a present but no idea what to get? We have all been there. We can help. Find great gifts here.',
+                 keywords: 'gift, present, baby, adult, man, woman, kid, teen, boy, girl, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div style="height: 80px"></div>
+
+<div class="text-center">
+  <h1 style="font-size: 10vh">Gift Helper</h1>
+  <p>Select the age group for which you are being forced to shop.</p>
+</div>
+
+<div style="height: 50px" class="hidden-xs"></div>
+
+
+<div class="text-center frame">
+  <%= image_tag 'speedometer.jpg', style: "width: 100%; max-width: 700px", class: "vertical-align-in-div", alt: "Speedometer of Gifting.  Ooooh.  Aaaaah." %>
+</div>
+
+<div class="text-center frame" style="margin-top: -465px">
+  <%= image_tag 'needle.png', id: "needle", style: "width: 100%; max-width: 290px", class: "vertical-align-in-div", alt: "The Needle of Wisdom." %>
+</div>
+
+<div class="frame" style="margin-top: -450px; width: 80%; margin-left: 10%">
+  <%= link_to gifts_kids_path, id: "kids" do %>
+    <div id="kids" class="stacking-boxes"></div>
+  <% end %>
+  <%= link_to gifts_teens_path do %>
+    <div id="teens" class="stacking-boxes"></div>
+  <% end %>
+  <%= link_to gifts_babies_path do %>
+    <div id="babies" class="stacking-boxes"></div>
+  <% end %>
+  <%= link_to gifts_adults_path do %>
+    <div id="adults" class="stacking-boxes"></div>
+  <% end %>
+</div>
+
+<script>
+  $('#babies').hover(
+      function(){ $('#needle').addClass('animation-babies') },
+      function(){ $('#needle').removeClass('animation-babies') }
+  );
+  $('#kids').hover(
+      function(){ $('#needle').addClass('animation-kids') },
+      function(){ $('#needle').removeClass('animation-kids') }
+  );
+  $('#teens').hover(
+      function(){ $('#needle').addClass('animation-teens') },
+      function(){ $('#needle').removeClass('animation-teens') }
+  );
+  $('#adults').hover(
+      function(){ $('#needle').addClass('animation-adults') },
+      function(){ $('#needle').removeClass('animation-adults') }
+  );
+</script>

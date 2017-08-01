@@ -1,0 +1,61 @@
+<%= content_for :page_title, 'Create a Joke' %>
+<% set_meta_tags description: 'You know that joke would leave people rolling in the aisles.  Go on, share it with your fellow men.',
+                 keywords: 'new, joke, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="row" style="height: 100px"></div>
+
+<div class="row">
+  <div class="text-center container">
+    <div class="visible-sm col-sm-5">
+      <div class="text-center">
+        <%= image_tag "RollingChair.png", style: "width: 90%; visibility: hidden", class: "slideRight" %>
+        <hr style="margin-top: 0px; width: 100%">
+      </div> <!-- visible sm -->
+    </div> <!-- column -->
+    <div class="col-xs-10 col-xs-push-1 col-sm-6 col-md-push-6">
+      <h1>Let there be jokes.</h1>
+      <div class="visible-xs text-center">
+        <%= image_tag "RollingChair.png", style: "width: 30%; visibility: hidden", class: "slideRight" %>
+        <hr style="margin-top: 0px; width: 50%">
+      </div> <!-- column -->
+      <p>Here's your chance. You can contribute to the great stockpile of man funny.  Please write with better spelling and/or grammar than is used in a typical tweet from a teenager or we can and will fix it.  Real men use Oxford commas.</p>
+      <p>Also, if your joke is unsavory, please <strong>don't</strong> check the boxes that indicate it's for kids or for mixed company.</p>
+      <p><em>All jokes will be reviewed before they go up.  If your joke gets picked, you earn 10 points on your mancard.</em></p>
+    </div> <!-- column -->
+  </div> <!-- text-center -->
+</div> <!-- row -->
+
+<div class="col-md-6 hidden-xs hidden-sm">
+  <%= image_tag "RollingChair.png", style: "position: fixed; bottom: 0; height: 650px; margin-left: 5%; visibility: hidden", class: "slideRight" %>
+</div> <!-- column -->
+
+<div class="container">
+  <div class="col-md-6 col-xs-12">
+
+    <%= form_for @joke do |f| %>
+      <%= f.label "Title" %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label "Joke" %>
+      <%= f.text_area :body, class: "form-control", style: "height: 300px" %>
+
+      <div class="field manly-radios">
+        <%= f.radio_button :joke_type, "Men" %>
+        <%= f.label :joke_type, "Joke for Men", value: "Men"  %><br>
+        <%= f.radio_button :joke_type, "Mixed" %>
+        <%= f.label :joke_type, "Joke for Mixed Company", value: "Mixed"  %><br>
+        <%= f.radio_button :joke_type, "Kids" %>
+        <%= f.label :joke_type, "Joke for Kids", value: "Kids"  %><br>
+        <%= f.radio_button :joke_type, "Comeback" %>
+        <%= f.label :joke_type, "Snappy Comebacks", value: "Comeback"  %><br>
+      </div>
+
+      <div class="text-center"><%= f.submit "Cue Laughtrack", action: :create, class: "hvr-grow btn btn-manly" %></div>
+    <% end %>
+  </div> <!-- column -->
+
+
+</div> <!-- container -->
+
+<%= render 'layouts/footer' %>

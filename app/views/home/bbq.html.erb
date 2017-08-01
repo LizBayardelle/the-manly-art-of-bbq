@@ -1,0 +1,22 @@
+<%= content_for :page_title, 'BBQ' %>
+<% set_meta_tags description: 'Whether you want great recipes or loads of knowledge, cultivate your skill as a grillmaster here.',
+                 keywords: 'recipes, tips, rules, advice, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'background_lifehacks.jpg', class: "bg", alt: "Fiery hot grill ready to cook you up some yumminess." %>
+
+<div class="row" style="padding-top: 100px; position: relative">
+  <div class="container text-center">
+    <h1 class="black-shadow" style="font-weight: bold; font-size: 70px; font-size: 10vw">BBQ</h1>
+	<h1 class="black-shadow" style="font-weight: bold; font-size: 40px; font-size: 5vw">The pen or the skewer?</h1>
+    <div class="row">
+      <%= link_to principles_path do %>
+        <%= image_tag 'ribs_bbq_school.png', class: "menu-patty col-xs-6 hvr-buzz-out", alt: "The delicious ribs of knowledge" %>
+      <% end %>
+      <%= link_to principles_recipes_path do %>
+        <%= image_tag 'ribs_recipes.png', class: "menu-patty col-xs-6 hvr-buzz-out", alt: "The delicious ribs of a good bbq recipe" %>
+      <% end %>
+    </div>
+		<h3 class="black-shadow col-xs-12" style="font-weight: bold">If you seek knowledge BBQ school has everything you need, regardless of your current grilling skill level. Once you've mastered the techniques, head over to the recipes section for a stockpile of tried-and-true favorites.</h3>
+  </div> <!-- container -->
+</div> <!-- row -->

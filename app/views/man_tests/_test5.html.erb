@@ -1,0 +1,17 @@
+<%= form_for @man_test do |f| %>
+    <h3>
+      <%= f.label "Which is not an appropriate beverage for a man to order?" %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Cold Beer", value: 0 %><br>
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Anything With a Tiny Umbrella", value: 1 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Water", value: 0 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Vodka martini, Shaken not Stirred", value: 0  %><br>
+    </h3>
+      <div class="text-center">
+        <%= f.submit "Confirm I'm a Man", class: "btn-boring" %>
+      </div>
+    </h3>
+<% end %>

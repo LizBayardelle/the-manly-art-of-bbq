@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="text-center row" style="margin: 80px 0 20px 0">
+    <h1 style="font-size: 10vh">Checkout</h1>
+    <%= link_to charges_address_path do %>
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: grey">1</h1>
+        <h4 style="color: grey">Address</h4>
+      </div> <!-- col -->
+    <% end %>
+    <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+      <h1 style="font-size: 75px; color: red">2</h1>
+      <h4><strong>Shipping</strong></h4>
+    </div> <!-- col -->
+    <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+      <h1 style="font-size: 75px; color: grey">3</h1>
+      <h4 style="color: grey">Billing</h4>
+    </div> <!-- col -->
+    <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+      <h1 style="font-size: 75px; color: grey">4</h1>
+      <h4 style="color: grey">Confirmation</h4>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="row">
+    <div class="row text-center">
+      <h2 style="font-size: 35px">How fast do you need it?</h2>
+        <% shipping_choices = [[]] %>
+        <% @usps_rates.each do |rate| %>
+          <% label = (number_to_currency(rate[1].to_f/100, precision: 2)).to_s + " - " + rate[0].to_s %>
+          <% value = rate[1].to_s + "|" + rate[0].to_s %>
+          <% shipping_choices << [value, label] %>
+        <% end %>
+        <% shipping_choices = shipping_choices.delete_if { |elem| elem.flatten.empty? } %>
+        <%= simple_form_for @order, url: charges_update_order_path(:shipping), method: :post do |f| %>
+          <div class="row">
+            <div class="form-inputs text-left">
+              <div class="form-group">
+                <%= f.collection_radio_buttons :shipping, shipping_choices, :first, :last, item_wrapper_class: :block_radio_button_collection %>
+              </div>
+            </div> <!-- form inputs -->
+          </div> <!-- choices row -->
+          <div class="row">
+            <%= f.button :submit, "Continue to Billing", class: "btn btn-manly" %>
+          </div>
+        <% end %>
+    </div> <!-- shipping row -->
+  </div> <!-- row -->
+</div> <!-- container -->
+
+<div class="row">
+  <hr class="col-xs-6 col-xs-push-3" />
+</div>
+
+<%= render "layouts/footer" %>

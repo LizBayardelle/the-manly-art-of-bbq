@@ -1,0 +1,17 @@
+<%= form_for @man_test do |f| %>
+    <h3>
+      <%= f.label "Which pet should not be walked by a man?" %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "A great dane", value: 0 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Look out for the gator, baby", value: 0 %><br>
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Something that lives in a purse", value: 1 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Anthing that knows how to fetch", value: 0  %><br>
+    </h3>
+      <div class="text-center">
+        <%= f.submit "Confirm I'm a Man", class: "btn-boring" %>
+      </div>
+    </h3>
+<% end %>

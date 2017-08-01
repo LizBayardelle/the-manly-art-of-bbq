@@ -1,0 +1,119 @@
+<%= content_for :page_title, 'The Manly Art of BBQ' %>
+<% set_meta_tags description: 'Welcome to the Manly Art of BBQ, the online knowledge stockpile of all things manly. This includes, but is not limited to, how to cook great barbecue.',
+                 keywords: 'knowledge, home, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div id='container'>
+  <div id="group1">
+    <div class="background">
+      <div class="hero-image-row">
+        <div class="hero-image-outer text-center">
+          <div class="hero-image-inner text-center">
+            <%= image_tag 'Background 2.jpg', class: "hero-image",alt: "Delicious-looking hot dogs on a manly grill. Just like God intended." %>
+          </div> <!-- hero-image-inner -->
+        </div> <!-- hero-image-inner -->
+      </div> <!-- row -->
+      <div class="overlap-hero-image text-center" style="height: 330px">
+        <h1>Man make fire.<br>Cook meat.</h1>
+        <p><a href="#test-popup" class="open-popup-link btn btn-ghost hvr-grow" style="margin-top: 40px">Quick Man Check</a></p>
+      </div> <!-- overlap-hero-image -->
+    </div> <!-- background -->
+    <div class="foreground">
+      <div class="row" style="background-color: white">
+          <div class="col-sm-4">
+            <div class="visible-md visible-sm" style="height: 15px"></div>
+            <div class="visible-lg" style="height: 40px"></div>
+            <h2 class="text-center comment" style="margin: 30px 50px 40px 50px; padding: 20px 0 20px 0; border-top: thick solid red; border-bottom: thick solid red !important">Men are not born knowing how to barbecue.</h2>
+          </div> <!-- column -->
+
+          <div class="col-sm-8" style="background-color: red; height: 100%; min-height: 290px; color: white; padding-top: 10px">
+            <div class="col-xs-12 col-sm-5 col-md-7 col-lg-8" style="padding: 30px">
+              <p>...but good luck explaining this to your buddies.</p>
+              <p>All are capable. Few are trained. Instead, we suffer through years of trial and error, snide comments from our buddies, and smug looks from our fathers-in-law.</p>
+              <p>This ends now. Here men share hints and hacks to help our brothers in BBQ impress others with their skills.</p>
+              <p style="font-weight: bolder; margin-top: -10px; font-size: 30px; line-height: 1.25; font-family: 'Covered By Your Grace', cursive !important">Grill on, brothers.</p>
+            </div> <!-- text in red -->
+            <div class="text-center hidden-xs col-sm-7 col-md-5 col-lg-4" style="height: 10px; overflow: show">
+              <%= image_tag 'Laser.png', style: "padding-left: 13px; margin-top: 50px; width: 60px" %>
+            </div> <!-- laser -->
+          </div> <!-- red -->
+        </div> <!-- white/red row -->
+
+        <div class="row" style="background-color: rgba(0,0,0,0.7); min-height: 250px; padding: 15px">
+          <div class="col-sm-8" style="color: white">
+            <h1 class="text-center">Manliest Men</h1>
+            <p class="text-center"><em>As defined by who has the most points on their mancard.</em></p>
+            <h3>
+              <ol>
+                <% @manliest_men.each do |user| %>
+                  <li><span style="font-family: 'Covered By Your Grace', cursive; line-height: 1.25; color: red; font-size: 34px"><%= user.username %></span> with <span style="color: red"><%= user.manpoints %></span> Manpoints</li>
+                <% end %>
+              </ol>
+            </h3>
+          </div> <!-- column -->
+        </div> <!-- row -->
+
+        <div class="row" style="min-height: 250px; padding: 15px">
+          <div class="col-sm-7 text-center">
+            <h1>Suggestions?</h1>
+            <p><em>Any ideas for things that would better the lives of men everywhere? Drop us a line. Good suggestions will be rewarded with manpoints. Obviously.</em></p>
+            <%= form_for @suggestion do |f| %>
+
+                <div class="field col-xs-12" style="margin-bottom: 10px">
+                  <%= f.text_area :suggestion, class: "form-control" %>
+                </div>
+
+                <div class="field col-sm-6" style="padding-top: 10px">
+                  <%= f.select :page, options_for_select([["General Suggestion", "General Suggestion"],["Improve Man Rules", "Man Rules"],["Improve BBQ", "Improve BBQ"],["Improve Lifehacks", "Improve Lifehacks"],["New Feature", "New Feature"],["Mancard Ideas", "Mancard Ideas"],["Bug Report", "Bug Report"]]), {}, {class: "form-control"} %>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                  <%= f.submit "Submit Suggestion", class: "hvr-grow btn btn-manly" %>
+                </div>
+            <% end %>
+
+            <div class="row">
+              <hr class="col-xs-6 col-xs-push-3" />
+            </div>
+
+            <a href="http://www.linchpinindustries.com" target="_blank" style="text-decoration: none">
+              <div class="text-center">
+                <p style="margin-bottom: 0; font-weight: 200">Website by
+                <%= image_tag "lpi_logo_rect.png", style: "height: 30px; width: auto; margin-left: 5px" %></p>
+              </div> <!--lpi -->
+            </a>
+          </div> <!-- column -->
+        </div> <!-- row -->
+      </div> <!-- foreground -->
+    </div> <!-- id #parallax group 1 -->
+  </div> <!-- id #container -->
+
+  <div style="direction: rtl">
+    <!-- Image Map Generated by http://www.image-map.net/ -->
+    <%= image_tag "remote-control-menu.png", class: "hidden-xs", style: "position: fixed; padding-left: 20px; bottom: 0; right: 15; float: right", usemap: "#image-map", alt: "Remote control menu.  Yes, you get to hold it." %>
+    <%= image_tag "remote-control-menu.png", class: "visible-xs", style: "margin-left: auto; margin-right: auto", usemap: "#image-map", alt: "Remote control menu.  Yes, you get to hold it." %>
+  </div>
+
+  <map name="image-map">
+    <% if current_user %>
+      <area target="" alt="Sign Out" title="Sign Out" href="<%= url_for destroy_user_session_path %>" coords="177,85,121,54" shape="rect">
+      <area target="" alt="My Mancard" title="My Mancard" href="<%= url_for user_path(current_user) %>" coords="64,148,24" shape="circle">
+    <% else %>
+      <area target="" alt="Sign In" title="Sign In" href="<%= url_for new_user_session_path %>" coords="121,51,177,87" shape="rect">
+      <area target="" alt="My Mancard" title="My Mancard" href="<%= url_for new_user_session_path %>" coords="64,148,24" shape="circle">
+    <% end %>
+      <area target="" alt="BBQ" title="BBQ" href="<%= url_for home_bbq_path %>" coords="148,143,26" shape="circle">
+      <area target="" alt="Man Rules" title="Man Rules" href="<%= url_for rules_path %>" coords="234,144,27" shape="circle">
+      <area target="" alt="Lifehacks" title="Lifehacks" href="<%= url_for home_lifehacks_path %>" coords="66,230,26" shape="circle">
+      <area target="" alt="Jokes" title="Jokes" href="<%= url_for home_jokes_path %>" coords="148,223,27" shape="circle">
+      <area target="" alt="Man Gear" title="Man Gear" href="<%= url_for products_path %>" coords="235,228,26" shape="circle">
+  </map>
+  </div> <!-- container -->
+
+  <div id="test-popup" class="white-popup mfp-hide">
+  	<div class="">
+  	  <h1>Answer the following:</h1>
+  	  <% @random_partial = 'man_tests/test' + rand(10).round.to_s %>
+  	  <%= render partial: @random_partial %>
+  	</div> <!-- hover-well -->
+  </div> <!-- white-popup mfp-hide -->

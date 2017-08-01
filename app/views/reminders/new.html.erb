@@ -1,0 +1,65 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.datetimepicker').datetimepicker();
+  });
+</script>
+
+<%= content_for :page_title, 'Create a Reminder' %>
+<% set_meta_tags description: 'Tell us about your event so you can forget about it in peace. We will remind you when the time comes.',
+                 keywords: 'new, reminder, memory, help, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<%= image_tag 'thinking_guy.jpg', class: "slideRight", style: "width: 60%; right: 0; bottom: 0; position: absolute; visibility: hidden" %>
+
+<div class="row" style="height: 125px"></div>
+
+<div class="col-xs-12 col-sm-7 text-center" style="background: red; color: white; padding: 15px 25px 15px 25px">
+  <h1>Need to free up some mental RAM?</h1>
+</div> <!-- container/columns -->
+
+<div class="col-sm-7 col-xs-11" style="padding: 30px 0 0 40px">
+  <%= simple_form_for @reminder do |f| %>
+
+    <div class="row">
+      <div class="field col-xs-7 col-xs-12">
+        <%= f.label "Thing to Remember" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field col-sm-5 col-xs-12">
+        <%= f.input :event_date, as: :datetime_picker %>
+      </div>
+
+      <div class="field col-sm-12 col-xs-12">
+        <%= f.label "Type of Event" %>
+        <%= f.select :occasion_type, options_for_select([["Something Else Altogether", "Other"],["Yay, more legos... (Little Boy's Birthday)", "Little Boy's Birthday"],["Gah! Why all the pink sparkles? (Little Girl's Birthday)", "Little Girl's Birthday"],["Moody teens. Oh joy. (Teenage Boy's Birthday)", "Teenage Boy's Birthday"],["No, seriously, put down your phone! (Teenage Girl's Birthday)", "Teenage Girl's Birthday"],["Annual Bro-versary (Adult Male's Birthday)", "Adult Male's Birthday"],["Rule #1: Never speak the actual number. (Adult Female's Birthday)", "Adult Female's Birthday"],["Unknowingly Entering the Workforce (Graduation) ", "Graduation"],["Enduring X Years of Torment (Anniversary)", "Anniversary"],["Successful Creation of a Tiny Human (New Baby)", "Baby"],["Winning the Work Game (Promotion)", "Promotion"],["Escaping the Ratrace (Retirement)", "Retirement"]]), {}, {class: "form-control"} %>
+      </div>
+	  
+      <div class="field manly-radios col-xs-6">
+		    <%= f.label "Repeat Event?" %><br>
+        <%= f.radio_button :repeating, "None" %>
+        <%= f.label :repeating, "No Repeat", value: "None"  %><br>
+        <%= f.radio_button :repeating, "Weekly" %>
+        <%= f.label :repeating, "Weekly", value: "Weekly"  %><br>
+        <%= f.radio_button :repeating, "Monthly" %>
+        <%= f.label :repeating, "Monthly", value: "Monthly"  %><br>
+        <%= f.radio_button :repeating, "Yearly" %>
+        <%= f.label :repeating, "Yearly", value: "Yearly"  %><br>
+      </div>
+
+      <div class="field col-xs-6">
+        <%= f.check_box :gift %>
+        <%= f.label "Gift required" %><br>
+        <%= f.check_box :gift_help %>
+        <%= f.label "Help me find a gift" %><br>
+        <%= f.check_box :reminder %>
+        <%= f.label "Please remind me" %>
+      </div>
+    </div> <!-- row -->
+
+    <div class="row text-center" style="padding-top: 25px">
+      <%= f.submit "Remind Me", class: "hvr-grow btn btn-manly" %>
+    </div>
+  <% end %>
+</div> <!-- container/columns -->

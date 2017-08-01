@@ -1,0 +1,63 @@
+<%= content_for :page_title, 'Suggestions' %>
+<% set_meta_tags description: 'Here are all the suggestions that have come in from the community of men. Good luck, grasshopper.',
+                 keywords: 'suggestions, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="row" style="height: 100px"></div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash.now[:alert] %>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash.now[:alert] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="row text-center">
+   <h1>Unhandled Suggestions</h1>
+   <p><%= link_to "Or did you want the archived suggestions?", suggestions_archives_path %></p>
+  </div>
+
+  <div class="joke-container container">
+    <% @suggestions.each do |suggestion| %>
+      <div class="row">
+        <h2 id="joke-title" style="margin-top: 50px">
+          <%= suggestion.suggestion %>
+          <span style="font-size: 14px; float: right">
+          <% if current_user && current_user.admin %>
+            <%= link_to archive_suggestion_path(suggestion), method: :patch do %>
+              <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Archive
+            <% end %>
+            <%= link_to suggestion_path(suggestion), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+            <% end %>
+          <% end %>
+          <span>
+        </h2>
+        <p id="joke-body"><%= suggestion.page %></p>
+        <p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p>
+        <hr class="col-xs-6 col-xs-push-3">
+      </div> <!-- row -->
+    <% end %>
+    <% if @suggestions.count == 0 %>
+      <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">And that's all she wrote...<br>No suggestions to review right now!</p>
+      <% if @archived_suggestions.count != 0 %>
+        <%= link_to suggestions_archives_path do %>
+          <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">...but there are <%= pluralize(@archived_suggestions.count, 'suggestion') %> though.</p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div> <!-- joke container -->
+</div <!-- container -->
+`

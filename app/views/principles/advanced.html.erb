@@ -1,0 +1,31 @@
+<%= content_for :page_title, 'Advanced BBQ Skills' %>
+<% set_meta_tags description: 'Here is the master class in the art of barbecue. Only the most advanced students should attempt the following.',
+                 keywords: 'advanced, skills, technique, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'tall_school_background.jpg', class: "bg", alt: "Fiery hot grill ready to cook you up some yumminess." %>
+
+<div class="row" style="padding-top: 250px; position: relative">
+  <div class="container">
+	<div style="color: black">
+		<div class="visible-lg row" style="height: 75px"></div>
+		<h1 class="text-center" style="font-size: 48px">Barbecue 301</h1>
+		<h2 class="text-center">Advanced Grilling</h2>
+		<p class="text-center bottom-buffer"><%= link_to "Jump to Intro", principles_intro_path %> | <%= link_to "Back to Intermediate", principles_intermediate_path %></p>
+		<p>Check back soon for advanced grilling lessons!</p>
+	</div> <!-- text -->
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3" style="border-color: black !important">
+	</div>
+	<div class="text-center" style="padding-bottom: 50px">
+		<h3>
+			<strong>Barbecue School</strong><br>
+			<%= link_to "Intro", principles_intro_path %> | <%= link_to "Intermediate", principles_intermediate_path %> | <%= link_to "Advanced", principles_advanced_path %>
+		</h3>
+		<h3>
+			<strong>Barbecue Basics</strong><br>
+			<%= link_to "Beef", principles_beef_path %> | <%= link_to "Chicken", principles_chicken_path %> | <%= link_to "Pork", principles_pork_path %> | <%= link_to "Fish", principles_fish_path %>
+		</h3>
+	</div> <!-- links -->
+  </div> <!-- container -->
+</div> <!-- row -->

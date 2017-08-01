@@ -1,0 +1,50 @@
+<%= content_for :page_title, 'Pork: The Basics' %>
+<% set_meta_tags description: 'All you ever needed to know about grilling pork.',
+                 keywords: 'pork, how to, learn, technique, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="row" style="padding-top: 100px; position: relative">
+  <div class="container">
+	<h1 class="text-center" style="font-size: 48px">How to Cook Pork</h1>
+	<h2 class="text-center">The rest of the bacon plant.</h2>
+	<div class="text-center">
+		<%= image_tag "background_principles_pork.jpg", class: "meat-img slideRight" %>
+	</div> <!-- center the image -->
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="row" style="min-height: 250px; padding: 15px">
+    <div class="col-sm-12 text-center">
+      <h1>Add to the collective knowledge!</h1>
+      <p><em>Have any good pork tricks up your sleeve?  Let us know and tips that make the cut will be added to the page. Good suggestions will be rewarded with manpoints. Obviously.</em></p>
+      <%= form_for @suggestion do |f| %>
+
+          <div class="field col-xs-12" style="margin-bottom: 10px">
+            <%= f.text_area :suggestion, class: "form-control" %>
+          </div>
+
+          <%= f.hidden_field :page, value: "Pork" %>
+
+          <div class="col-sm-12 text-center">
+            <%= f.submit "Submit Suggestion", class: "hvr-grow btn btn-manly" %>
+          </div>
+      <% end %>
+    </div> <!-- column -->
+  </div> <!-- row -->
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3">
+	</div>
+
+	<p class="text-center"><strong>Want to cook a different meat?</strong>
+		<br><%= link_to "Beef", principles_beef_path %> | <%= link_to "Steak", principles_steak_path %> | <%= link_to "Chicken", principles_chicken_path %> | Pork | <%= link_to "Fish", principles_fish_path %></p>
+	<p class="text-center"><%= link_to "Back to BBQ School", principles_path %></p>
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3">
+	</div>
+
+  </div> <!-- container -->
+</div> <!-- row -->

@@ -1,0 +1,21 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.datetimepicker').datetimepicker();
+  });
+</script>
+
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, class: "form-control" %>
+    <%= f.input :start_time, as: :datetime_picker %>
+    <%= f.select_recurring :recurring, nil, allow_blank: true %>
+    <%= f.input :reminder %>
+    <%= f.input :gift %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Remind Me", class: "hvr-grow btn btn-manly" %>
+  </div>
+<% end %>

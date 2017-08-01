@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="text-center row" style="margin: 80px 0 20px 0">
+    <h1 style="font-size: 10vh">Checkout</h1>
+    <div class="row">
+      <%= link_to charges_address_path do %>
+        <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+          <h1 style="font-size: 75px; color: grey">1</h1>
+          <h4 style="color: grey">Address</h4>
+        </div> <!-- col -->
+      <% end %>
+      <%= link_to charges_shipping_path do %>
+        <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+          <h1 style="font-size: 75px; color: grey">2</h1>
+          <h4 style="color: grey">Shipping</h4>
+        </div> <!-- col -->
+      <% end %>
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: red">3</h1>
+        <h4><strong>Billing</strong></h4>
+      </div> <!-- col -->
+      <div class="col-xs-3 col-sm-2 col-sm-push-2 text-center">
+        <h1 style="font-size: 75px; color: grey">4</h1>
+        <h4 style="color: grey">Confirmation</h4>
+      </div> <!-- col -->
+
+      <div class="row">
+        <hr class="col-xs-6 col-xs-push-3" />
+      </div>
+
+      <h2>Click the magic button below to pay for your stuff.</h2>
+    </div> <!-- row -->
+  </div> <!-- row -->
+
+  <div class="row text-center">
+    <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+          <span>Grand Total: <%= number_to_currency(@order.total, precision: 2) %></span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Manly Gear from Manly Art of BBQ"
+              data-amount="<%= @order.total * 100 %>"
+              data-locale="auto"></script>
+    <% end %>
+  </div>
+
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+</div> <!-- container -->
+
+<%= render "layouts/footer" %>

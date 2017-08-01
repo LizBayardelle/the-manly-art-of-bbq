@@ -1,0 +1,17 @@
+<%= form_for @man_test do |f| %>
+    <h3>
+      <%= f.label "Which can you NOT score when playing American football?" %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Touchdown", value: 0 %><br>
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Basket", value: 1 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Field Goal", value: 0 %><br>
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Safety", value: 0  %><br>
+    </h3>
+      <div class="text-center">
+        <%= f.submit "Confirm I'm a Man", class: "btn-boring" %>
+      </div>
+    </h3>
+<% end %>

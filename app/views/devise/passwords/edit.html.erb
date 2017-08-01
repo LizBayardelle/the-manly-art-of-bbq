@@ -1,0 +1,38 @@
+<%= content_for :page_title, 'Change Password' %>
+<% set_meta_tags description: 'Yeah, we thought that other password was getting old anyway. You can change to a new one right here.',
+                 keywords: 'change, password, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+	
+<%= image_tag 'Food.jpg', class: "bg",alt: "Mouth-watering barbecued yumminess.  Don't lick your computer, please." %>
+
+<div class="center-vertical col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-lg-6 col-lg-push-3 transparent-box">
+
+  <h1 class="text-center">Change Your Password</h1>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field">
+    <%= f.label :password, "New password" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Change Password" %>
+  </div>
+<% end %>
+
+  <div class="text-center">
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div> <!-- transparent-box -->

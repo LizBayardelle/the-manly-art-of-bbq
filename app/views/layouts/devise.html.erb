@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:page_title) %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
+  <link href='https://fonts.googleapis.com/css?family=Heebo:400,900,100,700|Covered+By+Your+Grace|Josefin+Slab' rel='stylesheet' type='text/css'>
+  <%= display_meta_tags description: 'Welcome to the Manly Art of BBQ, the online knowledge stockpile of all things manly. This includes, but is not limited to, how to cook great barbecue.',
+                   keywords: 'BBQ, barbecue, manly, art',
+                   site: 'The Manly Art of BBQ' %>
+</head>
+<body>
+
+<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header"><a class="navbar-brand" href="/"><%= image_tag 'LogoTextWhite.png', style: "height: 50px; margin-top: -15px" %></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    </div>
+    <div class="collapse navbar-collapse navbar-menubuilder">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Man Rules', rules_path %></li>
+        <li><%= link_to 'BBQ', home_bbq_path %></li>
+        <li><%= link_to 'Jokes', home_jokes_path %></li>
+        <li><%= link_to 'Lifehacks', home_lifehacks_path %></li>
+        <% if current_user %>
+          <li><%= link_to user_path(current_user) do %>
+            My Mancard <span style="background-color: red; padding-left: 5px; padding-right: 5px; border-radius: 7px"><%= current_user.manpoints %></span>
+          <% end %></li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div> <!-- collapse -->
+  </div> <!-- container-fluid -->
+</div> <!-- custom-bootstrap-menu -->
+
+<%= yield %>
+
+  <footer>
+
+  </footer>
+</body>
+</html>

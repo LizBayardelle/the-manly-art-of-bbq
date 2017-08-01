@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-xs-10 col-xs-push-1">
+    <%= form_for @product, html: { multipart: true } do |f| %>
+
+      <div class="form-inputs row">
+        <div class="form-group col-xs-9">
+          <%= f.label "Product Name" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-3">
+          <%= f.label :price %>
+          <%= f.text_field :price, class: "form-control", data: {autonumeric: true} %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <p><%= f.check_box :has_size, id: "sizeCheckbox" %> <strong><small>Has Different Sizes</small></strong></p>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12" id="sizeOptions" style="margin-top: -20px">
+          <%= f.label "Size Options (Separated by Commas)" %>
+          <%= f.text_field :size_options, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.label "Product Description" %>
+          <%= f.text_area :short_description, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.file_field :product_image, as: :file %>
+        </div> <!-- form group -->
+
+        <div class="form-group text-center col-xs-12">
+           <p><%= f.check_box :active %> This is an active product.</p>
+        </div> <!-- form group -->
+
+        <div class="row">
+          <hr class="col-xs-6 col-xs-push-3" />
+        </div>
+
+        <div class="col-xs-12">
+          <h2 class="text-center">Shipping Information</h2>
+        </div>
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Product Length (in Inches)" %>
+          <%= f.text_field :box_length, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Product Width (in Inches)" %>
+          <%= f.text_field :box_width, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Product Depth (in Inches)" %>
+          <%= f.text_field :box_depth, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Product Weight (in Pounds)" %>
+          <%= f.text_field :weight, class: "form-control" %>
+        </div> <!-- form group -->
+      </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit, class: "btn btn-manly" %>
+      </div>
+    <% end %>
+  </div> <!-- column -->
+</div> <!-- form row -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#sizeOptions").hide();
+      $('#sizeCheckbox').click(function() {
+          if( $(this).is(':checked')) {
+              $("#sizeOptions").show();
+          } else {
+              $("#sizeOptions").hide();
+          }
+      });
+    });
+</script>

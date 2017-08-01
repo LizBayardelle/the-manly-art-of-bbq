@@ -1,0 +1,40 @@
+<%= content_for :page_title, 'Intro to BBQ' %>
+<% set_meta_tags description: 'New to the great art of grilling? No problem! Here is all you need to know to get started.',
+                 keywords: 'beginner, intro, basic, tips, how to, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'tall_school_background.jpg', class: "bg", alt: "Fiery hot grill ready to cook you up some yumminess." %>
+
+<div class="row" style="padding-top: 250px; position: relative">
+  <div class="container big-text-container">
+	<div class="col-xs-12" style="color: black">
+		<div class="visible-lg row" style="height: 75px"></div>
+		<h1 class="text-center" style="font-size: 48px">Barbecue 101</h1>
+		<h2 class="text-center">An Intro to Grilling</h2>
+		<p class="text-center bottom-buffer"><%= link_to "Skip to Intermediate", principles_intermediate_path %> | <%= link_to "Jump to Advanced", principles_advanced_path %></p>
+		<p><ol class="big-text">
+			<li>BBQ is a craft to be practiced outdoors with good ventilation, never indoors.</li>
+			<li>BBQ is all about keeping juices in the meal and cooking the meat.  Try not to cut or poke with a fork the meat being cooked, you will end up with a drier and less tasty meal.</li>
+			<li>BBQ grills are hot. Don’t use kitchen implements to cook.  Invest in long handled BBQ tools to keep those arm hairs from being singed.</li>
+			<li>Cooking happens from the outside in.  The thicker the meat being cooked the longer you may have to leave it on the grill and the lower the temperature should be through most of the cooking (excluding searing).  You can have a meal burned on the outside and raw on the inside.  So don’t judge from outward appearances.</li>
+			<li>Get your grill as hot as it can be and then sear the meat you are cooking at the start of the BBQ process.  A few minutes on high heat for each side will sear the meat and create a protective coating on the meat which will keep the juices in the meal while you finish the cooking process at a medium or low heat.  Don’t sear too long or you will burn the outside of your meal.</li>
+			<li>Poultry, unlike beef, must be cooked all the way through.</li>
+			<li>Clean your grill with a metal brush before grilling.  Not perfectly clean, but enough to remove any of the prior grilling experience from the meal at hand. If the metal brush you're using begins to lose its metal bristles, discontinue its use immediately and throw the brush away.  Metal scraps are not tasty barbecue items.</li>
+			<li>Try to never cook over briquettes still burning lighter fluid.  Allow briquettes to get nice and gray.</li>
+		</ol></p>
+	</div> <!-- text -->
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3" style="border-color: black !important">
+	</div>
+	<div class="text-center" style="padding-bottom: 50px">
+		<h3>
+			<strong>Barbecue School</strong><br>
+			<%= link_to "Intro", principles_intro_path %> | <%= link_to "Intermediate", principles_intermediate_path %> | <%= link_to "Advanced", principles_advanced_path %>
+		</h3>
+		<h3>
+			<strong>Barbecue Basics</strong><br>
+			<%= link_to "Beef", principles_beef_path %> | <%= link_to "Chicken", principles_chicken_path %> | <%= link_to "Pork", principles_pork_path %> | <%= link_to "Fish", principles_fish_path %>
+		</h3>
+	</div> <!-- links -->
+  </div> <!-- container -->
+</div> <!-- row -->

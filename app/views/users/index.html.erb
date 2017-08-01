@@ -1,0 +1,64 @@
+<%= content_for :page_title, "Manly Roster" %>
+<% set_meta_tags description: 'Here be all the swarthy seafolk...',
+                 keywords: 'roster, user, information, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="row" style="height: 100px"></div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash.now[:alert] %>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash.now[:alert] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="text-center row">
+    <h1>Behold, the Roster of Manly Men</h1>
+    <p><%= link_to "Back to My Mancard", user_path(current_user) %></p>
+  </div> <!-- mancard area -->
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="usersDiv">
+    <table class="table">
+      <tr>
+        <th>Identity</th>
+        <th>Manpoints</th>
+        <th>Activity</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <strong><%= user.username %></strong><br />
+            <%= user.first_name %> <%= user.last_name %>
+          </td>
+          <td>
+            <strong><%= user.manpoints %> Manpoints</strong><br />
+            <%= pluralize(user.rules.count, "Rule") %><br />
+            <%= pluralize(user.jokes.count, "Joke") %><br />
+            <%= pluralize(user.recipes.count, "Recipes") %><br />
+            <%= pluralize(user.reminders.count, "Reminders") %>
+          </td>
+          <td>
+            <strong>Last Sign In: </strong><%= user.last_sign_in_at.strftime("%m/%d/%Y at %I:%M%p") %><br />
+            <strong>Joined: </strong><%= user.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div> <!-- users div -->
+</div> <!-- container -->

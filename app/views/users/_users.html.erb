@@ -1,0 +1,38 @@
+<h3 class="usersTitle">List of Members</h3>
+
+<div class="usersDiv hidden">
+  <table class="white-table">
+    <tr>
+      <th>Identity</th>
+      <th>Manpoints</th>
+      <th>Activity</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <strong><%= user.username %></strong><br />
+          <%= user.first_name %> <%= user.last_name %>
+        </td>
+        <td>
+          <strong><%= user.manpoints %> Manpoints</strong><br />
+          <%= pluralize(user.rules.count, "Rule") %><br />
+          <%= pluralize(user.jokes.count, "Joke") %><br />
+          <%= pluralize(user.recipes.count, "Recipes") %><br />
+          <%= pluralize(user.reminders.count, "Reminders") %>
+        </td>
+        <td>
+          <strong>Last Sign In: </strong><%= user.last_sign_in_at.strftime("%m/%d/%Y at %I:%M%p") %><br />
+          <strong>Joined: </strong><%= user.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div> <!-- users div -->
+
+<script>
+  $(document).ready(function(){
+    $(".usersTitle").click(function(){
+      $(".usersDiv").toggleClass("hidden");
+    });
+  });
+</script>

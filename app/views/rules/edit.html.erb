@@ -1,0 +1,20 @@
+<%= content_for :page_title, 'Edit Your Rule' %>
+<% set_meta_tags description: 'Great rule, it just needs a few tweaks.',
+                 keywords: 'edit, rule, man, men, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="text-right" style="width: 100%; overflow: hidden; direction: rtl; z-index: 0 !important; position: relative; margin-bottom: -98vh">
+  <%= image_tag 'background_edit.jpg', style: "height: 100vh" %>
+</div>
+
+<div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-5 col-md-push-1" style="color: white; background-color: rgba(0, 0, 0, 0.6); margin-top: 125px; padding-bottom: 20px; height: auto; position: relative; z-index: 100 !important">
+  <h1>Edit Your Rule</h1>
+  <p>Make sure it's perfect.<br>This is the fate of mankind we're talking about here...</p>
+
+  <%= form_for @rule do |f| %>
+    <h3 class="text-center">Add to the Mancode Collective</h3>
+    <%= f.text_area :manrule, class: "form-control", rows: "10" %>
+    <div class="text-center" style="margin-top: 10px"><%= f.submit "Let It Be So", action: :create, class: "hvr-grow btn btn-manly" %></div>
+  <% end %>
+</div>

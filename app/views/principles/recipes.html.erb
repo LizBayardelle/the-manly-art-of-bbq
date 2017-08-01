@@ -1,0 +1,87 @@
+<%= content_for :page_title, 'Recipes Homepage' %>
+<% set_meta_tags description: 'This is where it gets really yummy. Make your neighbors knock on your door because the smell is wafting over the fence yummy.',
+                 keywords: 'recipes, good, great, grilling, grill, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div id='container'>
+   <div id="group1">
+     <div class="background">
+       <div class="hero-image-row">
+          <div class="hero-image-outer text-center">
+            <div class="hero-image-inner text-center">
+              <%= image_tag 'BBQMenu.jpg', class: "hero-image",alt: "A mouthwatering spread of all kinds of food that was obviously grilled by a master." %>
+            </div> <!-- hero-image-inner -->
+          </div> <!-- hero-image-inner -->
+        </div> <!-- row -->
+
+        <div class="overlap-hero-image" style="margin-top: -380px !important">
+          <div class="row">
+            <div class="container">
+              <div class="col-md-8">
+                <h1>BBQ.</h1>
+                <h4>Mmmmmmmm. Smells like your birthright.</h3>
+                <h4>One of these "inalienable rights" we hear so much about surely should be the right to really good barbecue. Go forth to your next cookout, armed with these ideas. Claim your rights.</h4>
+                <h4><strong>Master the manly art of barbecue.</strong></h3>
+              </div> <!-- column -->
+            </div> <!-- row -->
+            <div class="row text-center">
+          	<p><%= link_to "Need help? Head to BBQ School", principles_path, class: "btn btn-ghost hvr-grow" %></p>
+              <% if current_user && current_user.admin %>
+                <p style="font-weight: bolder"><%= link_to "Approve/Reject New Submissions", recipes_path %></p>
+              <% end %>
+            </div> <!-- row -->
+          </div> <!-- container -->
+        </div> <!-- overlap-hero-image -->
+      </div> <!-- background -->
+
+      <div class="foreground">
+        <div class="row" style="background-color: white">
+          <div class="container">
+            <div class="row text-center">
+              <h1 style="margin-top: 60px; margin-bottom: 10px;">Behold, <%= link_to 'all', other_recipes_all_path, style: "color: red !important"%> the recipes.</h1>
+            </div> <!-- row -->
+
+            <div style="margin-top: 25px">
+              <h1 class="icon-row">Meat:<br class="visible-xs">
+                <%= link_to other_recipes_beef_path, style: "text-decoration: none !important" do %>
+                <div class="icon-box"><%= image_tag 'icon_steak.jpg', class: "bbq-icon", alt: "Steak" %></div>
+                <% end %>
+                <%= link_to other_recipes_chicken_path, style: "text-decoration: none !important" do %>
+                <div class="icon-box"><%= image_tag 'icon_chicken.jpg', class: "bbq-icon", alt: "Chicken" %></div>
+                <% end %>
+                <%= link_to other_recipes_fish_path, style: "text-decoration: none !important" do %>
+                <div class="icon-box"><%= image_tag 'icon_fish.jpg', class: "bbq-icon", alt: "Fish" %></div>
+                <% end %>
+                <%= link_to other_recipes_other_meat_path, style: "text-decoration: none !important" do %>
+                <div class="icon-box"><%= image_tag 'icon_other_meat.jpg', class: "bbq-icon", alt: "Other Meat", style: "margin-left: 20px" %></div>
+                <% end %>
+              </h1>
+            </div> <!-- column -->
+
+            <div class="visible-xs row" style="height: 30px"></div>
+
+            <div style="margin: -40px 0 -40px 0">
+              <h1 class="icon-row">Not Meat:<br class="visible-xs">
+                <%= link_to other_recipes_veggies_path, style: "text-decoration: none !important" do %>
+                <div class="icon-box"><%= image_tag 'icon_veggies.jpg', class: "bbq-icon" %></div>
+                <% end %>
+              </h1>
+            </div> <!-- column -->
+
+            <div class="visible-xs row" style="height: 30px"></div>
+
+            <div class="text-center">
+              <%= link_to "Have a good recipe?  Fork it over...", new_recipe_path, class: "hvr-grow btn btn-manly" %>
+            </div>
+
+            <div class="text-center row">
+              <hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 0 0 !important">
+            </div>
+
+          </div> <!-- container -->
+        </div> <!-- row -->
+
+        <%= render 'layouts/footer' %>
+      </div> <!-- foreground -->
+  </div> <!-- id #parallax group 1 -->
+</div> <!-- id #container -->

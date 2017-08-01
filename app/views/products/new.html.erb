@@ -1,0 +1,20 @@
+<%= content_for :page_title, "New Product" %>
+
+<div class="row" style="height: 100px"></div>
+
+<div class="row">
+	<div class="container">
+		<div class="header-row text-center row">
+			<h1 class="big-text">New Product</h1>
+			<h2><%= @product.name %></h2>
+		</div> <!-- header row -->
+
+		<div class="hover-well">
+			<%= render 'form' %>
+		</div>
+
+		<div class="text-center" style="margin-top: 25px">
+			<%= link_to 'Back', products_path %>
+		</div> <!-- centered -->
+	</div> <!-- container -->
+</div> <!-- row -->

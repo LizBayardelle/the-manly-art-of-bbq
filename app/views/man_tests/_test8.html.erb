@@ -1,0 +1,18 @@
+<%= form_for @man_test do |f| %>
+    <h3>
+      <%= f.label "You are on a bridge looking down.  Which do you have the urge to do?" %><br>
+
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Spit", value: 1 %><br>
+
+      <%= f.radio_button :score, 1 %>
+      <%= f.label :score, "Pee", value: 1 %><br>
+
+      <%= f.radio_button :score, 0 %>
+      <%= f.label :score, "Take a Selfie", value: 0  %><br>
+    </h3>
+      <div class="text-center">
+        <%= f.submit "Confirm I'm a Man", class: "btn-boring" %>
+      </div>
+    </h3>
+<% end %>

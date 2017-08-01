@@ -1,0 +1,38 @@
+<div class="row" style="height: 100px"></div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash.now[:alert] %>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash.now[:alert] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="container">
+    <h2>Checkout</h2>
+    <%= render 'items', :order => @order %>
+
+    <%= form_tag nil, class: "stripeForm" do %>
+          <%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
+          <dl>
+            <dt><%= label_tag 'card_number' %></dt>
+            <dd><%= text_field_tag 'card_number', nil, name: nil, "data-stripe" => "number", class: "form-control" %></dd>
+            <dt><%= label_tag 'expiry_month' %></dt>
+            <dd><%= text_field_tag 'expiry_month', nil, name: nil, "data-stripe" => "exp-month", class: "form-control" %></dd>
+            <dt><%= label_tag 'expiry_year' %></dt>
+            <dd><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp-year", class: "form-control" %></dd>
+            <dt><%= label_tag 'security_code' %></dt>
+            <dd><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc", class: "form-control" %></dd>
+            <dd class="text-center"><%= submit_tag "Continue", class: "btn cta" %></dd>
+          </dl>
+        <% end %>
+</div> <!-- container -->

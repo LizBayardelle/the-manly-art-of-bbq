@@ -1,0 +1,51 @@
+<%= content_for :page_title, 'Edit My Info' %>
+<% set_meta_tags description: 'Change is good. Edit your information at will, good sir.',
+                 keywords: 'edit, email, information, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+	
+<%= image_tag 'Food.jpg', class: "bg", alt: "Mouth-watering barbecued yumminess.  Don't lick your computer, please." %>
+
+<div class="center-vertical col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-lg-6 col-lg-push-3 transparent-box">
+
+  <h1 class="text-center">Edit My Info</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field col-xs-6">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field col-xs-6">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+  </div>
+
+
+  <div class="field col-xs-12">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field col-xs-12">
+    <%= f.label :current_password %> <br><i>(We need your current password to confirm your changes.)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Update", class: "hvr-grow btn-manly" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? You can <%= link_to "cancel your account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %> any time.</p>
+
+<div class="text-center">
+  <%= link_to "Back", :back %>
+</div>

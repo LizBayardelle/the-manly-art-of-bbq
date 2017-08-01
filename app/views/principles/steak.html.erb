@@ -1,0 +1,63 @@
+<%= content_for :page_title, 'Beef: The Basics' %>
+<% set_meta_tags description: 'All you ever needed to know about grilling beef.',
+                 keywords: 'steak, how to, grilling, tips, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+<div class="row" style="padding-top: 100px; position: relative">
+  <div class="container">
+	<h1 class="text-center" style="font-size: 48px">How to Cook Steak</h1>
+	<h2 class="text-center">Steak, the most important type of beef.</h2>
+	<div class="text-center">
+		<%= image_tag "background_principles_steak.jpg", class: "meat-img slideRight" %>
+	</div> <!-- center the image -->
+  <h2>How to Cook an Amazing Steak</h2>
+  <p><ul>
+    <li>Always cook meat at room temperature, never cold or frozen.</li>
+    <li>Saturate in olive oil and sea salt or other seasoning. (Try Santa Maria sold in the meat department.)</li>
+    <li>Heat your grill to 450 degrees.</li>
+    <li>Sear the steak on either side, only long enough to make quality looking grill marks.  Usually takes only 2 minutes a side.</li>
+    <li>Remove steaks from bottom rack and place on the top rack.</li>
+    <li>Turn off the middle burner below the steaks, effectively making your grill a convection oven.</li>
+    <li>Reduce the grill temp to 350-degrees.  If you don’t have a grill that holds a constant temperature, buy a new one.</li>
+    <li>No more chewy leather on the outside, no more over cooked steaks, and always more tender.</li>
+    <li>Another trick, if I am cooking for others, I want to avoid making multiple cuts in a steak or poking holes in it with a thermometer, therefore, I always cook one extra steak as my “test” steak and cut it multiple times to get a representative sample of how it is cooking without cutting the others.</li>
+    <li>And the test steak makes a great snack when nobody is looking.</li>
+  </ul></p>
+
+  <div class="row">
+    <hr class="col-xs-6 col-xs-push-3" />
+  </div>
+
+  <div class="row" style="min-height: 250px; padding: 15px">
+    <div class="col-sm-12 text-center">
+      <h1>Add to the collective knowledge!</h1>
+      <p><em>Have any good beef tricks up your sleeve?  Let us know and tips that make the cut will be added to the page. Good suggestions will be rewarded with manpoints. Obviously.</em></p>
+      <%= form_for @suggestion do |f| %>
+
+          <div class="field col-xs-12" style="margin-bottom: 10px">
+            <%= f.text_area :suggestion, class: "form-control" %>
+          </div>
+
+          <%= f.hidden_field :page, value: "Steak" %>
+
+          <div class="col-sm-12 text-center">
+            <%= f.submit "Submit Suggestion", class: "hvr-grow btn btn-manly" %>
+          </div>
+      <% end %>
+    </div> <!-- column -->
+  </div> <!-- row -->
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3">
+	</div>
+
+	<p class="text-center"><strong>Want to cook a different meat?</strong>
+		<br><%= link_to "Beef", principles_beef_path %> | Steak | <%= link_to "Chicken", principles_chicken_path %> | <%= link_to "Pork", principles_pork_path %> | <%= link_to "Fish", principles_fish_path %></p>
+		<p class="text-center"><%= link_to "Back to BBQ School", principles_path %></p>
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3">
+	</div>
+
+  </div> <!-- container -->
+</div> <!-- row -->

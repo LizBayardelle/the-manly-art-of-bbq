@@ -1,0 +1,74 @@
+<%= content_for :page_title, 'Memory Enhancer' %>
+<% set_meta_tags description: 'Have trouble remembering things? Fear not! Here is everything you need to know.',
+                 keywords: 'memory, help, remind, event, BBQ, barbecue, manly, art',
+         site: 'The Manly Art of BBQ' %>
+
+<%= image_tag 'memory_man.png', class: "slideRight", style: "width: 60%; right: 0; bottom: 0; position: absolute; visibility: hidden; z-index: 0" %>
+
+<div class="row" style="height: 100px"></div>
+
+<script>
+  $(document).ready(function() {
+    $('.open-popup-link').magnificPopup({
+      type:'inline',
+      midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+    });
+  });
+</script>
+
+<div class="container">
+  <div class="col-xs-12" style="background-color: rgba(255,255,255,0.7); position: relative; z-index: 10">
+    <h1 class="text-center" style="margin-bottom: 15px">Your External Memory</h1>
+    <p class="text-center"><a href="#calendar" class="open-popup-link">Show This Month's Calendar</a></p>
+  </div>
+
+  <div id="calendar" class="mfp-hide white-popup" style="width: 80%">
+    <%= month_calendar events: @calendar_events do |day, events| %>
+      <div>
+        <strong><%= day.to_s(:short) %></strong>
+      </div>
+
+      <% events.each do |event| %>
+        <div>
+          <%= link_to event.name, edit_event_path(event.id) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div> <!-- calendar -->
+
+  <h4 class="text-center"><%= link_to "Add to My Internet-Braintrust", new_event_path, class: "hvr-grow btn btn-manly", style: "color: white" %></h4>
+
+  <div class="container" id="calendar">
+    <% if @events == [] %>
+      <p class="text-center">Come on, you have to have <em>something</em> coming up...</p>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Recurring?</th>
+            <th>Reminder?</th>
+            <th>Gift Needed?</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= event.name %></td>
+              <td><%= event.start_time.to_formatted_s(:short) %></td>
+              <td><%= event.recurring %></td>
+              <td><% if event.reminder %>Email<% else %>None<% end %></td>
+              <td><% if event.gift %>Yes<% end %></td>
+              <td><%= link_to 'Edit', edit_event_path(event) %></td>
+              <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+  </div> <!-- container/columns -->
+</div>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your Order Has Been Shipped!</h1>
+
+    <h3 style="font-family: 'Roboto'; font-weight: 900">
+       Hey <%= @user.first_name %>,
+    </h3>
+
+    <h3 style="font-family: 'Roboto', sans-serif">
+        Your order from Manly Art of BBQ has shipped!<br />
+        Your items were shipped via <%= @order.shipping_choice %> and should be to you shortly.</h3>
+
+    <h3 style="font-family: 'Roboto', sans-serif"><strong>Happy Grilling,<br>The Manly Art of BBQ Team</strong></h3>
+
+    <hr />
+
+    <h2 class="text-center bp50">Order #<%= @order.id %></h2>
+    <h4><strong>Placed: </strong><%= @order.date_placed.strftime('%a, %b %d, %G, %T %Z') %><br />
+    <h4><strong>Status: </strong><%= @order.order_status.name %><br />
+    <h4><strong>Shipping Method: </strong><%= @order.shipping_choice %></h4>
+    <h4><strong>Total: </strong>$<%= number_with_precision(@order.total, precision: 2) %></h4>
+
+    <h4>Items:</h4>
+    <ul>
+      <% @order.order_items.each do |item| %>
+      <li>
+        <h4><%= item.product.name %> ($<%= number_with_precision(item.product.price, precision: 2) %>)</h4>
+        <% if item.product.has_size %>
+          <p><em><%= item.size %></em></p>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

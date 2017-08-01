@@ -1,0 +1,61 @@
+<%= content_for :page_title, 'Add Your Recipe' %>
+<% set_meta_tags description: 'Add to the collective stockpile of wonderful barbecue recipes. Your creation will go down in history.',
+                 keywords: 'recipe, new, add, submit, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+
+
+<div class="row" style="height: 100px"></div>
+
+<div class="row">
+  <div class="text-center" style="border-bottom: solid medium grey; padding-bottom: 10px; padding-left: 40px; padding-right: 40px;">
+    <h1>Share the delicious.</h1>
+    <p style="margin-bottom: 15px !important">If you have a good recipe, share it with the team!
+      <br>As usual, you will be awarded with manpoints should your recipe get selected.
+    </p>
+    <h4><%= link_to 'Back to List of Recipes', recipes_path %></h4>
+  </div> <!-- text column -->
+</div> <!-- row -->
+
+<div class="text-right" style="width: 100%; overflow: hidden; z-index: 0 !important; position: relative; margin-bottom: -98vh">
+  <%= image_tag 'background_new_recipe.jpg', style: "height: 100vh" %>
+</div>
+
+<div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-4 col-md-push-1" style="background-color: rgba(255, 255, 255, 0.85); margin-top: 25px; padding-bottom: 20px; height: auto; position: relative; z-index: 100 !important">
+  <%= form_for @recipe do |f| %>
+    <h2 class="text-center">Create Your Masterpiece</h2>
+    <%= f.label "Recipe Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label "Steps to Deliciousness" %>
+    <%= f.text_area :instructions, class: "form-control" %>
+
+    <%= f.label "This Recipe Works With:" %>
+
+    <div class="field">
+      <%= f.check_box :chicken %>
+      <%= f.label "Chicken", style: "margin-top: 0px; margin-bottom: 0px; margin-left: 10px; color: red" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :beef %>
+      <%= f.label "Beef", style: "margin-top: 0px; margin-bottom: 0px; margin-left: 10px; color: red" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :fish %>
+      <%= f.label "Fish", style: "margin-top: 0px; margin-bottom: 0px; margin-left: 10px; color: red" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :other_meat %>
+      <%= f.label "Other Types of Meat", style: "margin-top: 0px; margin-bottom: 0px; margin-left: 10px; color: red" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :veggies %>
+      <%= f.label "Vegetables", style: "margin-top: 0px; margin-bottom: 0px; margin-left: 10px; color: red" %>
+    </div>
+
+    <div class="text-center"><%= f.submit "Share My Delicious Creation", action: :create, class: "hvr-grow btn btn-manly" %></div>
+  <% end %>
+</div> <!-- container -->

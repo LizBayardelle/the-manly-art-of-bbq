@@ -1,0 +1,46 @@
+<%= content_for :page_title, 'Your Shopping Cart' %>
+<% set_meta_tags description: "You have great taste. Obviously. Here's all the stuff you picked out",
+                 keywords: 'cart, BBQ, barbecue, manly, art',
+         site: 'The Manly Art of BBQ' %>
+
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag 'background_meat.jpg', class: "hero-image",alt: "Meat just waiting to go on the grill." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
+
+
+<div class="overlap-hero-image" style="margin-top: -185px !important; height: 185px">
+  <div class="row">
+    <div class="text-center">
+      <h1 style="margin-top: -40px">Order #<%= @order.id %></h1>
+    </div> <!-- text-center -->
+  </div> <!-- row -->
+</div> <!-- overlap-hero-image -->
+
+<div class="shadow-top background-white row bp50">
+  <div class="container" style="margin-top: 50px">
+    <p style="float: right"><em><%= @order.date_placed.strftime('%a, %b %d, %G, %T %Z') %></em></p>
+
+    <h3><strong>Order Items</strong></h3>
+    <ul>
+      <% @order.order_items.each do |item| %>
+        <li>
+          <strong><%= item.product.name %> ($<%= number_with_precision(item.product.price, precision: 2) %>)</strong>
+          <% if item.product.has_size %>
+            <br /><%= item.size %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <h3><strong>Total: </strong>$<%= number_with_precision(@order.total, precision: 2) %></h3>
+    <h3><strong>Status: </strong><%= @order.order_status.name %></h3>
+
+
+    <div class="row text-center">
+      <%= link_to "Back to My Dashboard", user_path(current_user), class: "btn" %>
+    </div> <!-- bottom buttons -->
+  </div> <!-- container -->
+</div> <!-- white row -->

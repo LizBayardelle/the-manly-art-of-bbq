@@ -1,0 +1,56 @@
+<%= content_for :page_title, 'Sign Up' %>
+<% set_meta_tags description: 'Begin your journey into manliness here. An account is the first step to gain glory, honor, and yummy barbecue recipes.',
+                 keywords: 'sign up, account, BBQ, barbecue, manly, art',
+				 site: 'The Manly Art of BBQ' %>
+	
+<%= image_tag 'Food.jpg', class: "bg",alt: "Mouth-watering barbecued yumminess.  Don't lick your computer, please." %>
+
+<div class="center-vertical col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-lg-6 col-lg-push-3 transparent-box">
+
+  <h1 class="text-center">Begin the Journey of Manhood</h1>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field col-xs-6">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field col-xs-6">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field col-xs-12">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field col-xs-6">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(Min. <%= @minimum_password_length %> Characters)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="field col-xs-6">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  </div>
+
+<div class="col-xs-12">
+  <div class="actions text-center">
+    <%= f.submit "Let's Go!", class: "hvr-grow btn-manly" %>
+  </div>
+
+<% end %>
+
+  <div class="text-center">
+    <%= render "devise/shared/links" %>
+  </div>
+</div> <!-- rowish -->
+
+</div> <!-- transparent-box -->

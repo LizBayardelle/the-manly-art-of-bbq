@@ -1,0 +1,12 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+   </head>
+   <body>
+     <h1>Reminder! <%= @reminder.name %> is coming!</h1>
+		<p><strong>Date: </strong><%= @reminder.start_time.try(:to_formatted_s, :long) %></p>
+		<p><strong>Gift Needed: </strong><% if @reminder.gift %>Unfortunately...<% else %>Nope!<% end %></p>
+     <p><%= link_to "Take Me To My Memory Enhancer", reminders_url %></p>
+   </body>
+ </html>
