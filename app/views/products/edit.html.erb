@@ -1,21 +1,28 @@
 <%= content_for :page_title, @product.name %>
 
-<div class="row" style="height: 100px"></div>
+<div class="full-hero-div">
+  <%= image_tag "tablecloth.jpg", class: "full-hero-img" %>
+  <div class="overlap-full-image">
+		<div class="row" style="height: 100px"></div>
 
-<div class="row">
-	<div class="container">
-		<div class="header-row text-center row">
-			<h1 class="big-text">Edit Product</h1>
-			<h2><%= @product.name %></h2>
-		</div> <!-- header row -->
+		<div class="row">
+			<div class="container">
+				<div class="header-row text-center row">
+					<h1 class="big-text">Edit Product</h1>
+					<h2><%= @product.name %></h2>
+				</div> <!-- header row -->
 
-		<div class="hover-well">
-			<%= render 'form' %>
-		</div>
+				<div class="hover-well">
+					<%= render 'form' %>
+				</div>
 
-		<div class="text-center" style="margin-top: 25px">
-			<%= link_to 'Show', @product %> |
-			<%= link_to 'Back', products_path %>
-		</div> <!-- centered -->
-	</div> <!-- container -->
-</div> <!-- row -->
+				<div class="text-center" style="margin: 25px 0 50px 0">
+					<%= link_to 'Show', @product %> |
+					<%= link_to 'Back', products_path %>
+				</div> <!-- centered -->
+			</div> <!-- container -->
+		</div> <!-- row -->
+	</div> <!-- overlap-full-image -->
+</div> <!-- full hero div -->
+
+<%= render 'layouts/footer' %>

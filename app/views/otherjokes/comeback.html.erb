@@ -3,39 +3,47 @@
                  keywords: 'witty, snappy, comeback, retort, funny, BBQ, barbecue, manly, art',
 				 site: 'The Manly Art of BBQ' %>
 
-<div class="hero-image-row">
-  <div class="hero-image-outer text-center">
-    <div class="hero-image-inner text-center">
-      <%= image_tag 'BackgroundComeback.jpg', class: "hero-image",alt: "Guys laughing at an obviously hilarious joke while barbecuing." %>
-    </div> <!-- hero-image-inner -->
-  </div> <!-- hero-image-inner -->
-</div> <!-- row -->
+<div id='container'>
+  <div id="group1">
+    <div class="background">
+      <div class="hero-image-row">
+        <div class="hero-image-outer text-center">
+          <div class="hero-image-inner text-center">
+            <%= image_tag 'BackgroundComeback.jpg', class: "hero-image",alt: "Guys laughing at an obviously hilarious joke while barbecuing." %>
+          </div> <!-- hero-image-inner -->
+        </div> <!-- hero-image-inner -->
+      </div> <!-- row -->
 
+      <div class="overlap-hero-image" style="margin-top: -185px !important; height: 185px">
+        <div class="row">
+          <div class="text-center">
+            <h1 style="margin-top: -40px">Snappy<br>Comebacks</h1>
+          </div> <!-- text-center -->
+        </div> <!-- row -->
+      </div> <!-- overlap-hero-image -->
+    </div> <!-- background -->
 
-<div class="overlap-hero-image" style="margin-top: -185px !important; height: 185px">
-  <div class="row">
-    <div class="text-center">
-      <h1 style="margin-top: -40px">Snappy<br>Comebacks</h1>
-    </div> <!-- text-center -->
-  </div> <!-- row -->
-</div> <!-- overlap-hero-image -->
+    <div class="foreground">
+      <div class="row transparent-box">
+        <div class="text-center col-xs-12">
+          <h3 style="margin-top: 0px; font-weight: bolder">Looking for other jokes?<br>
+            <%= link_to "For Men", otherjokes_men_path %> | <%= link_to "Mixed Company", otherjokes_mixed_path %> | <%= link_to "Kids", otherjokes_kids_path %> | Snappy Comebacks
+          </div> <!-- other categories -->
+        </div> <!-- row -->
 
-<div class="row transparent-box">
-	<div class="text-center col-xs-12">
-   	 	 <h3 style="margin-top: 0px; font-weight: bolder">Looking for other jokes?<br>
-   		 <%= link_to "For Men", otherjokes_men_path %> | <%= link_to "Mixed Company", otherjokes_mixed_path %> | <%= link_to "Kids", otherjokes_kids_path %> | Snappy Comebacks
-	</div> <!-- other categories -->
-</div> <!-- row -->
+        <div class="container" style="margin-top: 20px">
 
-<div class="container" style="margin-top: 20px">
+          <div class="joke-container">
 
-  <div class="joke-container">
-    
-    <%= render "jokes" %>
+            <%= render "jokes" %>
 
-    <div class="text-center" style="height: 40px">
-      <%= link_to "Submit a New Joke", new_joke_path, class: "hvr-grow btn-manly", style: "color: white" %>
-    </div> <!-- text-center -->
+            <div class="text-center" style="height: 40px">
+              <%= link_to "Submit a New Joke", new_joke_path, class: "hvr-grow btn-manly", style: "color: white" %>
+            </div> <!-- text-center -->
 
-  </div> <!-- joke container -->
-</div> <!-- container -->
+          </div> <!-- joke container -->
+        </div> <!-- container -->
+        <%= render "layouts/footer" %>
+      </div> <!-- foreground -->
+    </div> <!-- id #parallax group 1 -->
+  </div> <!-- id #container -->

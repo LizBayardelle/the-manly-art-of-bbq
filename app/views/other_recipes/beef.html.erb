@@ -20,20 +20,28 @@
             <div class="text-center">
               <h1 style="margin-bottom: 50px !important">Let's get our beef on.</h1>
               <%= link_to "Submit a New Recipe", new_recipe_path, class: "hvr-grow btn-ghost" %>
-              <h4 style="margin-top: 25px"><%= link_to "Back to Recipes Home", home_bbq_path, style: "color: white" %></h4>
+              <h4 style="margin-top: 25px"><%= link_to "Back to Recipes Home", principles_recipes_path, style: "color: white" %></h4>
             </div> <!-- text-center -->
           </div> <!-- row -->
         </div> <!-- overlap-hero-image -->
     </div> <!-- background -->
 
     <div class="foreground" style="background-color: white">
+
+      <div class="row transparent-box">
+      	<div class="text-center col-xs-12">
+         	 	 <h3 style="margin-top: 0px; font-weight: bolder">Looking for other recipes?<br>
+         		 Beef | <%= link_to "Chicken", other_recipes_chicken_path %> | <%= link_to "Fish", other_recipes_fish_path %> | <%= link_to "Other Meat", other_recipes_other_meat_path %> | <%= link_to "Veggies", other_recipes_veggies_path %>
+      	</div> <!-- other categories -->
+      </div> <!-- row -->
+
       <div class="container" style="margin-top: 25px">
 
         <div class="joke-container">
 
           <%= render "recipes" %>
 
-          <div class="text-center" style="height: 40px">
+          <div class="text-center">
             <%= link_to "Submit a New Recipe", new_recipe_path, class: "hvr-grow btn-manly", style: "color: white" %>
           </div> <!-- text-center -->
 

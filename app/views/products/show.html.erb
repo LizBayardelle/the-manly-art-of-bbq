@@ -4,24 +4,36 @@
   site: 'The Manly Art of BBQ'
 %>
 
-<div class="row" style="height: 100px"></div>
+<div class="full-hero-div">
+  <%= image_tag "tablecloth.jpg", class: "full-hero-img" %>
+  <div class="overlap-full-image">
 
-<div class="container text-center">
-  <% if @product.default_image %>
-    <%= image_tag @product.default_image.path, width: '200px' %>
-  <% end %>
+    <div class="row" style="height: 150px"></div>
 
-  <h2><%= @product.name %></h2>
+    <div class="container text-center">
+      <div class="hover-well">
+        <%= image_tag @product.product_image.url, width: '200px' %>
 
-  <p><%= @product.short_description %></p>
-  <p>
-    <b><%= number_to_currency @product.price %></b><br>
-    <%= link_to "Add to basket", product_path(@product.permalink), :method => :post %>
-  </p>
+        <h2><%= @product.name %></h2>
 
-  <hr>
-  <%= simple_format @product.description %>
-  <hr>
+        <p><%= @product.short_description %></p>
 
-  <p><%= link_to "Back to list", products_index_path %></p>
-</div> <!-- page container -->
+        <%= form_for @order_item, remote: true do |f| %>
+          <h4>
+            <strong>Quantity: </strong>
+            <%= f.number_field :quantity, value: 1, class: "form-control", style: "width: 50px; display: inline-block", min: 1 %>
+          </h4>
+          <% if @product.has_size %>
+            <%= f.select :size, @product.size_options.split(",") %>
+          <% end %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <h4><strong><%= number_to_currency @product.price %></strong></h4>
+          <%= f.submit "Add to Cart", class: "btn btn-manly add_to_cart", style: "margin: 0" %>
+        <% end %>
+      </div> <!-- hover well -->
+      <p><%= link_to "Back to list", products_path, class: "btn btn-ghost black" %></p>
+    </div> <!-- page container -->
+  </div> <!-- overlap-full-image -->
+</div> <!-- full hero div -->
+
+<%= render 'layouts/footer' %>
