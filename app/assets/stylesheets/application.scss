@@ -354,19 +354,6 @@ Responsive Hero
 	}
 }
 
-.scroll-div {
-	position: absolute;
-	bottom: 0;
-	z-index: 15;
-	width: 100%
-}
-
-.scroll-div .icon {
-	text-align: center;
-	color: white;
-	font-size: 150px;
-	padding-bottom: 300px;
-}
 
 
 
@@ -426,6 +413,10 @@ footer {
 
 
 
+
+
+
+
 /*
 ==============================================
 Full VH Scrollable
@@ -460,6 +451,41 @@ Full VH Scrollable
 	top: 0;
 	z-index: 15;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+SUBNAVS
+==============================================
+*/
+
+.subnav div {
+  display: inline-block;
+  padding: 7px;
+}
+
+.subnav div:hover {
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+
+
+
+
+
+
+
 
 
 

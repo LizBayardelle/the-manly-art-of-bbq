@@ -27,8 +27,13 @@
       <div class="row transparent-box">
       	<div class="text-center col-xs-12">
          	 	 <h3 style="margin-top: 0px; font-weight: bolder">Looking for other jokes?<br>
-         		 For Men | <%= link_to "Mixed Company", otherjokes_mixed_path %> | <%= link_to "Kids", otherjokes_kids_path %> | <%= link_to "Snappy Comebacks", otherjokes_comeback_path %>
-      	</div> <!-- other categories -->
+             <div class="subnav">
+               For Men |
+               <div><%= link_to "Mixed Company", otherjokes_mixed_path %></div> |
+               <div><%= link_to "Kids", otherjokes_kids_path %></div> |
+               <div><%= link_to "Snappy Comebacks", otherjokes_comeback_path %></div>
+             </div> <!-- subnav -->
+         </div> <!-- other categories -->
       </div> <!-- row -->
 
       <div class="container" style="margin-top: 20px">

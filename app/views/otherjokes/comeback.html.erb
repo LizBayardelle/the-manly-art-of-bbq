@@ -27,7 +27,12 @@
       <div class="row transparent-box">
         <div class="text-center col-xs-12">
           <h3 style="margin-top: 0px; font-weight: bolder">Looking for other jokes?<br>
-            <%= link_to "For Men", otherjokes_men_path %> | <%= link_to "Mixed Company", otherjokes_mixed_path %> | <%= link_to "Kids", otherjokes_kids_path %> | Snappy Comebacks
+            <div class="subnav">
+              <div><%= link_to "For Men", otherjokes_men_path %></div> |
+              <div><%= link_to "Mixed Company", otherjokes_mixed_path %></div> |
+              <div><%= link_to "Kids", otherjokes_kids_path %></div>
+               | Snappy Comebacks
+            </div> <!-- subnav -->
           </div> <!-- other categories -->
         </div> <!-- row -->
 
