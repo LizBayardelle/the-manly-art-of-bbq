@@ -12,12 +12,12 @@
  *
 
  *= require magnific-popup
- *= require trix
  *= require bootstrap-datetimepicker
  *= require recurring_select
  *= require simple_calendar
- *= require_tree .
+ *= require trix
  *= require_self
+ *= require_tree .
  */
 
  @import "bootstrap-sprockets";
