@@ -27,7 +27,8 @@
     <%= f.text_field :name, class: "form-control" %>
 
     <%= f.label "Steps to Deliciousness" %>
-    <%= f.text_area :instructions, class: "form-control" %>
+    <%= f.hidden_field :instructions, id: "instructions" %>
+    <trix-editor input="instructions"></trix-editor>
 
     <%= f.label "This Recipe Works With:" %>
 

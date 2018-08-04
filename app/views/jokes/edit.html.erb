@@ -36,7 +36,8 @@
       <%= f.text_field :title, class: "form-control" %>
 
       <%= f.label "Joke" %>
-      <%= f.text_area :body, class: "form-control", style: "height: 300px" %>
+      <%= f.hidden_field :body, id: "body" %>
+      <trix-editor input="body"></trix-editor>
 
       <div class="field manly-radios">
         <%= f.radio_button :joke_type, "Men" %>

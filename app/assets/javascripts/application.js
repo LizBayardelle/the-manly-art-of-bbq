@@ -18,6 +18,7 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require recurring_select
+//= require trix
 //= require_tree .
 
 
