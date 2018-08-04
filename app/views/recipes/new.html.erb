@@ -21,14 +21,13 @@
 </div>
 
 <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-4 col-md-push-1" style="background-color: rgba(255, 255, 255, 0.85); margin-top: 25px; padding-bottom: 20px; height: auto; position: relative; z-index: 100 !important">
-  <%= form_for @recipe do |f| %>
+  <%= simple_form_for @recipe do |f| %>
     <h2 class="text-center">Create Your Masterpiece</h2>
     <%= f.label "Recipe Name" %>
     <%= f.text_field :name, class: "form-control" %>
 
     <%= f.label "Steps to Deliciousness" %>
-    <%= f.hidden_field :instructions, id: "instructions" %>
-    <trix-editor input="instructions"></trix-editor>
+    <%= f.trix_editor :instructions %>
 
     <%= f.label "This Recipe Works With:" %>
 

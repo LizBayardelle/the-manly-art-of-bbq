@@ -14,6 +14,13 @@ GIT
     datetimepicker-rails (4.7.16)
       momentjs-rails (>= 2.9.0)
 
+GIT
+  remote: https://github.com/bcoia/trix.git
+  revision: 56d84ae42e34488b0bb301bd9bd0f54fac7fc811
+  specs:
+    trix (0.11.1)
+      rails (> 4.1, <= 6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -265,8 +272,6 @@ GEM
       activerecord (> 4.2, < 6)
       statistics2
     tilt (2.0.8)
-    trix (0.10.1)
-      rails
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.17)
@@ -316,7 +321,7 @@ DEPENDENCIES
   sqlite3
   stripe
   thumbs_up
-  trix
+  trix!
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
