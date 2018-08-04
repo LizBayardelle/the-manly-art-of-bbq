@@ -265,18 +265,18 @@ label {
 	margin-bottom: 0px !important;
 	font-weight: bold;
 	border-radius: 0;
+  background-color: white;
+  border-width: 5px;
 }
 
 .alert-success {
-	background-color: $color-green-success;
 	border-color: $color-green-success;
 	color: black;
 }
 
 .alert-danger {
-    background-color: red;
     border-color: red;
-    color: white;
+    color: black;
 }
 
 ol.big-text li {
@@ -299,6 +299,7 @@ NOTIFICATION AREA
   margin-top: 100px;
   width: 95%;
   margin-left: 20px;
+  z-index: 100;
 }
 
 

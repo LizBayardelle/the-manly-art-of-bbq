@@ -19,3 +19,8 @@
 //= require pickers
 //= require recurring_select
 //= require_tree .
+
+
+$(document).on("ready page:load", function() {
+  setTimeout(function() { $(".alert").fadeOut(); }, 5000);
+});

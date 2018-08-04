@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '~> 5.2'
 
 group :production do
   gem 'pg'
@@ -11,12 +11,11 @@ group :development do
   gem 'sqlite3'
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'quiet_assets'
 end
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
@@ -40,6 +39,7 @@ gem 'simple_calendar'
 gem 'recurring_select'
 gem 'sidekiq'
 gem 'byebug'
+gem 'activemerchant'
 gem 'active_shipping'
 gem 'newrelic_rpm'
 gem 'scout_apm'
