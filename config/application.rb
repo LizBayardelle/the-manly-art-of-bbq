@@ -23,6 +23,9 @@ module MAB
     # FOR DELAYED_JOB
     config.active_job.queue_adapter = :delayed_job
 
+    #GZIP Compression
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
+
     # serve assets
     config.serve_static_assets = true
 
