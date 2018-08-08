@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # SSL
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # FOR SENDGRID
   config.action_mailer.default_url_options = { host: 'manly-art-of-bbq.herokuapp.com' }
