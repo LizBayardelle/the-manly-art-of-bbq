@@ -10,6 +10,9 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # SSL
+  config.force_ssl = true
+
   # FOR SENDGRID
   config.action_mailer.default_url_options = { host: 'mab-staging.herokuapp.com' }
 
