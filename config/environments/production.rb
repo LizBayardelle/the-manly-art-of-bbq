@@ -13,6 +13,9 @@ Rails.application.configure do
   # SSL
   # config.force_ssl = true
 
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
+
   # FOR SENDGRID
   config.action_mailer.default_url_options = { host: 'manly-art-of-bbq.herokuapp.com' }
 

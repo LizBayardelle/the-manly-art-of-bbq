@@ -13,6 +13,9 @@ Rails.application.configure do
   # FOR SENDGRID
   config.action_mailer.default_url_options = { host: 'mab-staging.herokuapp.com' }
 
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
+
   # FOR PAPERCLIP/AWS
   # config/environments/production.rb
   config.paperclip_defaults = {

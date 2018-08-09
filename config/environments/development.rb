@@ -12,6 +12,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Store files locally.
+  config.active_storage.service = :local
+
   # Devise install
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 

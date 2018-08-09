@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.product_image.attach(params[:product][:product_image])
     @product.save
     flash[:notice] = "Your product has been created!"
     redirect_to products_path
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.product_image.attach(params[:product][:product_image])
     if @product.update_attributes(product_params)
       redirect_to products_path
       flash[:notice] = "That product has been updated."
