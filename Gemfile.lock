@@ -87,6 +87,9 @@ GEM
     aws-sdk-core (2.11.102)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
+    aws-sdk-rails (1.0.1)
+      aws-sdk-resources (~> 2)
+      railties (>= 3)
     aws-sdk-resources (2.11.102)
       aws-sdk-core (= 2.11.102)
     aws-sigv4 (1.0.3)
@@ -290,6 +293,7 @@ DEPENDENCIES
   active_shipping
   activemerchant
   aws-sdk (~> 2.3)
+  aws-sdk-rails
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
