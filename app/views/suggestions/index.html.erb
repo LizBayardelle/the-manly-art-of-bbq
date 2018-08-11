@@ -46,7 +46,7 @@
           <span>
         </h2>
         <p id="joke-body"><%= suggestion.page %></p>
-        <% if suggestion.user.first_name %><p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p><% end %>
+        <% if suggestion.user.first_name != nil %><p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p><% end %>
         <hr class="col-xs-6 col-xs-push-3">
       </div> <!-- row -->
     <% end %>
@@ -54,7 +54,7 @@
       <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">And that's all she wrote...<br>No suggestions to review right now!</p>
       <% if @archived_suggestions.count != 0 %>
         <%= link_to suggestions_archives_path do %>
-          <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">...but there are <%= pluralize(@archived_suggestions.count, 'suggestion') %> though.</p>
+          <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">...but there <%= 'is'.pluralize(@archived_suggestions.count) %> <%= pluralize(@archived_suggestions.count, 'suggestion') %> though.</p>
         <% end %>
       <% end %>
     <% end %>
