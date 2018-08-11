@@ -27,6 +27,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'stripe'
 gem 'paperclip'
+gem 'scout_apm'
 gem 'activestorage'
 gem 'aws-sdk', '~> 3' #AWS
 gem 'mini_magick', '~> 4.8'
