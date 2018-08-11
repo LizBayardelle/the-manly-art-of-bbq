@@ -33,7 +33,7 @@
     <% @suggestions.each do |suggestion| %>
       <div class="row">
         <h2 id="joke-title" style="margin-top: 50px">
-          <%= suggestion.suggestion %>
+          <%= suggestion.suggestion%>
           <span style="font-size: 14px; float: right">
           <% if current_user && current_user.admin %>
             <%= link_to archive_suggestion_path(suggestion), method: :patch do %>
@@ -46,7 +46,7 @@
           <span>
         </h2>
         <p id="joke-body"><%= suggestion.page %></p>
-        <p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p>
+        <% if suggestion.user.first_name %><p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p><% end %>
         <hr class="col-xs-6 col-xs-push-3">
       </div> <!-- row -->
     <% end %>

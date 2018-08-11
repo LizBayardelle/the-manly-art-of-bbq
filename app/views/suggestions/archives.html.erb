@@ -36,7 +36,7 @@
       <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">And that's all she wrote...<br>No suggestions to review right now!</p>
       <% if @current_suggestions.count != 0 %>
         <%= link_to suggestions_path do %>
-          <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">...but there are <%= pluralize(@current_suggestions.count, 'current suggestion') %> though.</p>
+          <p class="text-center" style="font-family: 'Covered By Your Grace', cursive; color: red; font-size: 24px; margin-top: 40px">...but there <%= 'is'.pluralize(@current_suggestions.count) %> <%= @current_suggestions.count %> current <%= 'suggestion'.pluralize(@current_suggestions.count) %> though.</p>
         <% end %>
       <% end %>
     <% end %>
