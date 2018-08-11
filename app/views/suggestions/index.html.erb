@@ -46,7 +46,7 @@
           <span>
         </h2>
         <p id="joke-body"><%= suggestion.page %></p>
-        <% if @suggestion.user.first_name != nil %><p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p><% end %>
+        <% if suggestion.user.first_name != '' %><p><strong><span style="font-family: 'Covered By Your Grace', cursive">Suggested by <%= suggestion.user.first_name %></span></strong></p><% end %>
         <hr class="col-xs-6 col-xs-push-3">
       </div> <!-- row -->
     <% end %>
