@@ -14,7 +14,7 @@ class SuggestionsController < ApplicationController
     @suggestion.user = current_user
     @suggestion.save
     flash[:notice] = "So stipulated. Your suggestion will be considered by the powers that be."
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.update_attributes(order_status_id: 2)
       flash[:notice] = "The order status has been changed."
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Hmmm...something went wrong."
     end
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     if @order.update_attributes(order_status_id: 3)
       OrderMailer.order_shipped(@order.user, @order).deliver_now
       flash[:notice] = "The customer has been notified that their order shipped!"
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Hmmm...something went wrong."
     end
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.update_attributes(order_status_id: 4)
       flash[:notice] = "That order has been successfully deleted!"
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Hmmm...something went wrong."
     end

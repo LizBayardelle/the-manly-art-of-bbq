@@ -40,7 +40,7 @@ class ChargesController < ApplicationController
     if @order.update_order_from_shipping_page(params[:order][:shipping])
       redirect_to new_charge_path and return
     else
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
       flash[:notice] = "Something is amuck."
     end
   end
