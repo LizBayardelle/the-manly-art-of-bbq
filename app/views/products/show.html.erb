@@ -12,7 +12,9 @@
 
     <div class="container text-center">
       <div class="hover-well">
-        <%= image_tag url_for(@product.product_image), width: '200px' %>
+        <% if @product.product_image_file_name %>
+          <%= image_tag url_for(@product.product_image), width: '200px' %>
+        <% end %>
 
         <h2><%= @product.name %></h2>
 
