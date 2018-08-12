@@ -28,7 +28,6 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.product_image.attach(params[:product][:product_image])
-    @product.save
     if @product.update_attributes(product_params)
       redirect_to products_path
       flash[:notice] = "That product has been updated."
