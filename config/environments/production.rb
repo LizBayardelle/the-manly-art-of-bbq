@@ -15,6 +15,7 @@ Rails.application.configure do
 
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
+  config.assets.digest = false
 
   # FOR SENDGRID
   config.action_mailer.default_url_options = { host: 'manly-art-of-bbq.herokuapp.com' }
@@ -55,7 +56,7 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
-  config.assets.digest = true
+  # config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
