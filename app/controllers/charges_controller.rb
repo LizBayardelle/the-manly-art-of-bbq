@@ -1,11 +1,13 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
+  require 'active_shipping'
 
   def address
     @user = current_user
   end
 
   def shipping
+
     @user = current_user
     @products = current_order.order_items.all
     @order = current_order

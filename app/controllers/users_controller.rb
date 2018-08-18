@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @user.update_attributes(account_update_params)
     if @user.update(account_update_params)
       redirect_to charges_shipping_path
