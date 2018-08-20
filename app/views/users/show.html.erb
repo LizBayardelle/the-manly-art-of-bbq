@@ -31,17 +31,31 @@
 
     <div class="foreground" style="top: 625px">
       <% if current_user && current_user.admin %>
-        <div style="color: white; background-color: rgba(0,0,0,0.7); padding: 20px">
+        <div class="row" style="color: white; background-color: rgba(0,0,0,0.7); padding: 20px">
           <h1 class="text-center">Admin Things for People in Charge</h1>
+
           <% if @suggestions.count != 0 %>
             <%= link_to suggestions_path do %>
-              <h3>Dude, you have <%=pluralize(@suggestions.count, 'suggestion') %> to deal with. Get on it.</h3>
+              <div class="card-outer col-xs-6 col-sm-4">
+                <div class="card col-xs-12">
+                  <h2><%=pluralize(@suggestions.count, 'New Suggestion') %></h2>
+                  <p>Seriously. Get on it.</p>
+                </div> <!-- inner card -->
+              </div> <!-- outer card -->
             <% end %>
           <% end %>
 
-          <h3><%= link_to "See Member Roster", users_path %></h3>
+          <div class="card-outer col-xs-6 col-sm-4">
+            <div class="card col-xs-12">
+              <h2><%= link_to "See Member Roster", users_path %></h2>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
-          <h3><%= link_to "See Current Orders", orders_path %></h3>
+          <div class="card-outer col-xs-6 col-sm-4">
+            <div class="card col-xs-12">
+              <h2><%= link_to "See Current Orders", orders_path %></h2>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
         </div> <!-- container -->
       <% end %>
@@ -118,3 +132,10 @@
     </div> <!-- foreground -->
   </div> <!-- id #parallax group 1 -->
 </div> <!-- id #container -->
+
+
+<script>
+  $( document ).ready(function() {
+  	$('.card').matchHeight();
+  });
+</script>

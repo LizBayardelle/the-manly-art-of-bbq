@@ -36,53 +36,54 @@
     <div class="foreground">
       <div class="row" style="background-color: white">
         <div class="container" style="margin-top: 60px">
-          <%= link_to otherjokes_men_path do %>
-            <div class="text-center col-sm-3 icon-text-segment">
-              <%= image_tag 'icon_men.jpg' %>
-              <h2>For Men Only</h2>
-              <p>Some things are for men.  Manly men.</p>
-              <p>These jokes are for those golf buddies that you love but wouldn't trust around your family for ten seconds.</p>
-              <p>Unsavoriness lies within.</p>
-            </div>
-          <% end %>
 
-          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+          <div class="card-outer col-xs-12 col-sm-6 col-lg-3">
+            <div class="card col-xs-12 doodle">
+              <%= link_to otherjokes_men_path do %>
+                <%= image_tag 'icon_men.jpg', alt: "Jokes for Men" %>
+                <h2>For Men Only</h2>
+                <p>Some things are for men.  Manly men.</p>
+                <p>These jokes are for those golf buddies that you love but wouldn't trust around your family for ten seconds.</p>
+                <p>Unsavoriness lies within.</p>
+              <% end %>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
-          <%= link_to otherjokes_mixed_path do %>
-            <div class="text-center col-sm-3 icon-text-segment">
-              <%= image_tag 'icon_mixed.jpg' %>
-              <h2>For Mixed Company</h2>
-              <p>Against some of our wishes, we aren't always on the golf course.</p>
-              <p>These jokes will win you props instead of glares when you're in mixed company.</p>
-              <p>Entertain away, my friend.</p>
-            </div>
-          <% end %>
+          <div class="card-outer col-xs-12 col-sm-6 col-lg-3">
+            <div class="card col-xs-12 doodle">
+              <%= link_to otherjokes_mixed_path do %>
+                <%= image_tag 'icon_mixed.jpg', alt: "Jokes for Mixed Company" %>
+                <h2>For Mixed Company</h2>
+                <p>Against some of our wishes, we aren't always on the golf course.</p>
+                <p>These jokes will win you props instead of glares when you're in mixed company.</p>
+                <p>Entertain away, my friend.</p>
+              <% end %>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
-          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+          <div class="card-outer col-xs-12 col-sm-6 col-lg-3">
+            <div class="card col-xs-12 doodle">
+              <%= link_to otherjokes_kids_path do %>
+                <%= image_tag 'icon_kids.jpg', alt: "Jokes for Kids" %>
+                <h2>For Kids</h2>
+                <p>Let's face it, "dad jokes" have gotten a bad rap.</p>
+                <p>Here, we'll equip you with some humor that will more giggles and fewer groans.</p>
+                <p>Warning: some of them are pretty punny.</p>
+              <% end %>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
-          <%= link_to otherjokes_kids_path do %>
-            <div class="text-center col-sm-3 icon-text-segment">
-              <%= image_tag 'icon_kids.jpg' %>
-              <h2>Especially For Kids</h2>
-              <p>Let's face it, "dad jokes" have gotten a bad rap.</p>
-              <p>Here, we'll equip you with some humor that will more giggles and fewer groans.</p>
-              <p>Warning: some of them are pretty punny.</p>
-            </div>
-          <% end %>
-
-          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
-
-          <%= link_to otherjokes_comeback_path do %>
-            <div class="text-center col-sm-3 icon-text-segment">
-              <%= image_tag 'icon_comeback.jpg' %>
-              <h2>Snappy Comebacks</h2>
-              <p>We've all been there.</p>
-              <p>Someone says something that should earn them a solid "face five" (if you catch our drift).</p>
-              <p>Instead of wasting perfectly good bail money, give these a shot.</p>
-            </div>
-          <% end %>
-
-          <div class="text-center"><hr class="visible-xs" style="margin-top: 50px !important; margin-bottom: 50px !important; width: 50%"></div>
+          <div class="card-outer col-xs-12 col-sm-6 col-lg-3">
+            <div class="card col-xs-12 doodle">
+              <%= link_to otherjokes_comeback_path do %>
+                <%= image_tag 'icon_comeback.jpg', alt: "Snappy Comebacks" %>
+                <h2>Snappy Comebacks</h2>
+                <p>We've all been there.</p>
+                <p>Someone says something that should earn them a solid "face five" (if you catch our drift).</p>
+                <p>Instead of wasting perfectly good bail money, give these a shot.</p>
+              <% end %>
+            </div> <!-- inner card -->
+          </div> <!-- outer card -->
 
         </div> <!-- container -->
       </div> <!-- row -->
@@ -91,3 +92,11 @@
     </div> <!-- foreground -->
   </div> <!-- id #parallax group 1 -->
 </div> <!-- id #container -->
+
+
+
+<script>
+  $( document ).ready(function() {
+  	$('.card').matchHeight();
+  });
+</script>

@@ -16,21 +16,29 @@
 	<div class="row">
 		<div class="text-center levels">
 				<h2 class="block-font">Barbecue Skills</h2>
-				<h1 class="col-sm-4">
-					<%= link_to principles_intro_path, class: "block-font hvr-grow" do %>
-						Intro to <br class="visible-sm">BBQ
-					<% end %>
-				</h1>
-				<h1 class="col-sm-4">
-					<%= link_to principles_intermediate_path, class: "block-font hvr-grow" do %>
-						The Next <br class="visible-sm">Level
-					<% end %>
-				</h1>
-				<h1 class="col-sm-4">
-					<%= link_to principles_advanced_path, class: "block-font hvr-grow" do %>
-						BBQ for <br class="visible-sm">Masters
-					<% end %>
-				</h1>
+
+        <div class="row">
+          <div class="container">
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card card1 col-xs-12">
+                <h2><%= link_to "Intro to BBQ", principles_intro_path %></h2>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
+
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card card1 col-xs-12">
+                <h2><%= link_to "The Next Level", principles_intermediate_path %></h2>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
+
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card card1 col-xs-12">
+                <h2><%= link_to "BBQ for Masters", principles_advanced_path %></h2>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
+          </div> <!-- container -->
+        </div> <!-- row -->
+
 		</div> <!-- levels -->
 
     <div class="row">
@@ -40,41 +48,70 @@
 		<div class="text-center meats"> <!-- meats -->
 				<h2 class="block-font">Tips by Meat Type</h2>
 
-        <div class="col-sm-2 col-sm-push-1 doodle">
-					<%= link_to principles_beef_path do %>
-						<%= image_tag "doodle_beef.jpg", class: "hvr-grow", alt: "doodled picture of steak" %>
-						<h3>Beef</h3>
-					<% end %>
-				</div> <!-- beef -->
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_beef_path do %>
+  						<%= image_tag "doodle_beef.jpg", class: "hvr-grow", alt: "doodled picture of steak" %>
+  						<h2>Beef</h2>
+              <p>Why are cows so tasty?</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
 
-				<div class="col-sm-2 col-sm-push-1 doodle">
-					<%= link_to principles_steak_path do %>
-						<%= image_tag "doodle_steak.jpg", class: "hvr-grow", alt: "doodled picture of beef" %>
-						<h3>Steak</h3>
-					<% end %>
-				</div> <!-- beef -->
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_steak_path do %>
+  						<%= image_tag "doodle_steak.jpg", class: "hvr-grow", alt: "doodled picture of beef" %>
+  						<h2>Steak</h2>
+              <p>The most important type of beef.</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
 
-				<div class="col-sm-2 col-sm-push-1 doodle">
-					<%= link_to principles_chicken_path do %>
-						<%= image_tag "doodle_chicken.jpg", class: "hvr-grow", alt: "doodled picture of chicken" %>
-						<h3>Chicken</h3>
-					<% end %>
-				</div> <!-- Chicken -->
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_chicken_path do %>
+  						<%= image_tag "doodle_chicken.jpg", class: "hvr-grow", alt: "doodled picture of chicken" %>
+  						<h2>Chicken</h2>
+              <p>What everything else tastes like.</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
 
-				<div class="col-sm-2 col-sm-push-1 doodle">
-					<%= link_to principles_pork_path do %>
-						<%= image_tag "doodle_pork", class: "hvr-grow", alt: "doodled picture of pork" %>
-						<h3>Pork</h3>
-					<% end %>
-				</div> <!-- pork -->
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_pork_path do %>
+  						<%= image_tag "doodle_pork", class: "hvr-grow", alt: "doodled picture of pork" %>
+  						<h2>Pork</h2>
+              <p>The rest of the bacon plant.</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
 
-				<div class="col-sm-2 col-sm-push-1 doodle">
-					<%= link_to principles_fish_path do %>
-						<%= image_tag "doodle_fish.jpg", class: "hvr-grow", alt: "doodled picture of fish" %>
-						<h3>Fish</h3>
-					<% end %>
-				</div> <!-- fish -->
-		</div> <!-- meats -->
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_fish_path do %>
+  						<%= image_tag "doodle_fish.jpg", class: "hvr-grow", alt: "doodled picture of fish" %>
+  						<h2>Fish</h2>
+              <p>Les poisson, les poisson...</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
+
+        <div class="card-outer col-xs-12 col-sm-4">
+          <div class="card card2 col-xs-12 doodle">
+            <%= link_to principles_veggies_path do %>
+  						<%= image_tag "doodle_veggie.jpg", class: "hvr-grow", alt: "doodled picture of fish" %>
+  						<h2>Veggies</h2>
+              <p>The other end of the food chain.</p>
+  					<% end %>
+          </div> <!-- inner card -->
+        </div> <!-- outer card -->
+
+      </div> <!-- meats -->
+    </div> <!-- container -->
+  </div> <!-- row -->
+
 	</div> <!-- content row -->
 
 	<div class="row">
@@ -84,3 +121,10 @@
 </div> <!-- page container -->
 
 <%= render 'layouts/footer' %>
+
+<script>
+  $( document ).ready(function() {
+  	$('.card1').matchHeight();
+    $('.card2').matchHeight();
+  });
+</script>

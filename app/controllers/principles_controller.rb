@@ -33,6 +33,10 @@ class PrinciplesController < ApplicationController
     @suggestion = Suggestion.new
   end
 
+  def veggies
+    @suggestion = Suggestion.new
+  end
+
   def recipes
   end
 end

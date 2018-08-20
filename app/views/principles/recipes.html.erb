@@ -35,51 +35,69 @@
       </div> <!-- background -->
 
       <div class="foreground">
-        <div class="row" style="background-color: white">
+        <div class="row" style="background-color: white; padding-top: 30px">
           <div class="container">
-            <div class="col-xs-12">
-              <div class="row text-center">
-                <h1 style="margin-top: 60px; margin-bottom: 10px;">Behold, <%= link_to 'all', other_recipes_all_path, style: "color: red !important"%> the recipes.</h1>
-              </div> <!-- row -->
 
-              <div style="margin-top: 25px">
-                <h1 class="icon-row">Meat:<br class="visible-xs">
-                  <%= link_to other_recipes_beef_path, style: "text-decoration: none !important" do %>
-                  <div class="icon-box"><%= image_tag 'icon_steak.jpg', class: "bbq-icon", alt: "Steak" %></div>
-                  <% end %>
-                  <%= link_to other_recipes_chicken_path, style: "text-decoration: none !important" do %>
-                  <div class="icon-box"><%= image_tag 'icon_chicken.jpg', class: "bbq-icon", alt: "Chicken" %></div>
-                  <% end %>
-                  <%= link_to other_recipes_fish_path, style: "text-decoration: none !important" do %>
-                  <div class="icon-box"><%= image_tag 'icon_fish.jpg', class: "bbq-icon", alt: "Fish" %></div>
-                  <% end %>
-                  <%= link_to other_recipes_other_meat_path, style: "text-decoration: none !important" do %>
-                  <div class="icon-box"><%= image_tag 'icon_other_meat.jpg', class: "bbq-icon", alt: "Other Meat", style: "margin-left: 20px" %></div>
-                  <% end %>
-                </h1>
-              </div> <!-- column -->
+            <div class="card-outer col-xs-12 col-lg-4">
+              <div class="card col-xs-12 doodle">
+                <%= link_to other_recipes_all_path do %>
+                <%= image_tag 'icon_other_meat.jpg', alt: "Other Meat" %>
+                  <h2>All Recipes</h2>
+                  <p>Behold, the entire stockpile.</p>
+                <% end %>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
 
-              <div class="visible-xs row" style="height: 30px"></div>
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card col-xs-12 doodle">
+                <%= link_to other_recipes_beef_path do %>
+                <%= image_tag 'icon_steak.jpg', alt: "Beef" %>
+                  <h2>Beef</h2>
+                  <p>Why are cows so tasty?</p>
+                <% end %>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
 
-              <div style="margin: -40px 0 -40px 0">
-                <h1 class="icon-row">Not Meat:<br class="visible-xs">
-                  <%= link_to other_recipes_veggies_path, style: "text-decoration: none !important" do %>
-                  <div class="icon-box"><%= image_tag 'icon_veggies.jpg', class: "bbq-icon" %></div>
-                  <% end %>
-                </h1>
-              </div> <!-- column -->
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card col-xs-12 doodle">
+                <%= link_to other_recipes_chicken_path do %>
+                <%= image_tag 'icon_chicken.jpg', alt: "Chicken" %>
+                  <h2>Chicken</h2>
+                  <p>What everything else tastes like.</p>
+                <% end %>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
 
-              <div class="visible-xs row" style="height: 30px"></div>
+            <div class="card-outer col-xs-12 col-sm-4">
+              <div class="card col-xs-12 doodle">
+                <%= link_to other_recipes_fish_path do %>
+                <%= image_tag 'icon_fish.jpg', alt: "Fish" %>
+                  <h2>Fish</h2>
+                  <p>Les poisson, les poisson...</p>
+                <% end %>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
 
-              <div class="text-center">
-                <%= link_to "Have a good recipe?  Fork it over...", new_recipe_path, class: "hvr-grow btn btn-manly" %>
-              </div>
+            <div class="card-outer col-xs-12 col-lg-4">
+              <div class="card col-xs-12 doodle">
+                <%= link_to other_recipes_veggies_path do %>
+                <%= image_tag 'icon_veggies.jpg', alt: "Veggies" %>
+                  <h2>Veggies</h2>
+                  <p>The other end of the food chain.</p>
+                <% end %>
+              </div> <!-- inner card -->
+            </div> <!-- outer card -->
 
-              <div class="text-center row">
-                <hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 0 0 !important">
-              </div>
+            <div class="visible-xs row" style="height: 30px"></div>
 
-            </div> <!-- col xs 12 -->
+            <div class="text-center">
+              <%= link_to "Have a good recipe?  Fork it over...", new_recipe_path, class: "hvr-grow btn btn-manly" %>
+            </div>
+
+            <div class="text-center row">
+              <hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 0 0 !important">
+            </div>
+
           </div> <!-- container -->
         </div> <!-- row -->
 
@@ -87,3 +105,10 @@
       </div> <!-- foreground -->
   </div> <!-- id #parallax group 1 -->
 </div> <!-- id #container -->
+
+
+<script>
+  $( document ).ready(function() {
+  	$('.card').matchHeight();
+  });
+</script>

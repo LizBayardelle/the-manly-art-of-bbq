@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'principles/pork'
   get 'principles/fish'
   get 'principles/recipes'
+  get 'principles/veggies'
 
   resources :suggestions, only: [:create, :index, :destroy] do
     patch :archive, on: :member
