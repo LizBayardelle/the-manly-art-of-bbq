@@ -21,6 +21,7 @@
               <h1 style="margin-bottom: 30px !important">Manrules.</h1>
               <h3>Know what to do and what not to do.<br>
               Violations can and will incur punches on your mancard.</h3>
+              <div><a href="#addNew" class="hvr-grow btn btn-ghost" >Submit a New Rule</a></div>
             </div> <!-- text-center -->
           </div> <!-- container -->
         </div> <!-- row -->
@@ -179,7 +180,7 @@
         </div> <!-- container -->
       </div> <!-- joke container -->
 
-      <div style="background: rgba(0, 0, 0, 0.8); width: 100%; padding: 30px; color: white">
+      <div id="addNew" style="background: rgba(0, 0, 0, 0.8); width: 100%; padding: 30px; color: white">
         <div class="container">
           <%= form_for @rule do |f| %>
             <h3 class="text-center">Add to the Mancode Collective</h3>
@@ -195,3 +196,15 @@
     </div> <!-- foreground -->
   </div> <!-- id #parallax group 1 -->
 </div> <!-- id #container -->
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+  });
+</script>

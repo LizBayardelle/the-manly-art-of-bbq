@@ -139,7 +139,7 @@
    margin-bottom: 10px;
    font-family: $font-sans;
    font-weight: bolder;
-   font-size: 18px;
+   font-size: 22px;
    text-decoration: none;
    padding: 5px 15px 5px 15px;
    border: 5px solid white;
@@ -148,7 +148,8 @@
 
  .btn-ghost:hover {
    background-color: $transparent-white !important;
-   color: rgba(0,0,0,1);
+   color: black !important;
+   border-color: black;
 }
 
 .btn-ghost.black {

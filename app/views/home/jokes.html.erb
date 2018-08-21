@@ -24,7 +24,7 @@
             </div> <!-- column -->
           </div> <!-- row -->
           <div class="row text-center">
-            <div><%= link_to "Have a good joke?  We're all ears...", new_joke_path, class: "hvr-grow btn btn-ghost" %></div>
+            <div><%= link_to "Submit a New Joke", new_joke_path, class: "hvr-grow btn btn-ghost" %></div>
             <% if current_user && current_user.admin %>
               <p style="font-weight: bolder"><%= link_to "Approve/Reject New Submissions", jokes_path %></p>
             <% end %>
