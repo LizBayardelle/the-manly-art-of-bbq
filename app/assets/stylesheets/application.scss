@@ -23,7 +23,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import 'ionicons';
- @import "social-share-button";
 
 
  $font-typewriter: 'Josefin Slab', serif;
@@ -1422,3 +1421,18 @@ to { -moz-transform: rotate(200deg) scale(1) skew(1deg) translate(0px); }
 from { -o-transform: rotate(0deg) scale(1) skew(1deg) translate(10px); }
 to { -o-transform: rotate(200deg) scale(1) skew(1deg) translate(0px); }
 }
+
+
+
+
+
+nav.share {display: inline-block; padding-left: 20px} /* shareable's nav tag */
+nav.share div {float: left; margin-right: 5px}
+nav.share iframe {border:0; margin-top:0; padding-top:0;} /* if using medium sized buttons */
+nav.share span {vertical-align: top}
+#___plusone_0 {font-size: default !important;}
+.fb_iframe_widget span { vertical-align: top; }
+.fb_edge_widget_with_comment { vertical-align: top;}
+.fb-like{display:inline-block}
+* html .fb-like{display:inline}/* ie6 inline block fix*/
+*+html .fb-like{display:inline}/* ie7 inline block fix*/
