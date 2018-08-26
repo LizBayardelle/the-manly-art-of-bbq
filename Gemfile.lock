@@ -838,6 +838,8 @@ GEM
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    social-share-button (1.1.0)
+      coffee-rails
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -907,6 +909,7 @@ DEPENDENCIES
   sidekiq
   simple_calendar
   simple_form
+  social-share-button
   sqlite3
   stripe
   thumbs_up
