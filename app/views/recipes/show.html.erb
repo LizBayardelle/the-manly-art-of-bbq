@@ -3,9 +3,9 @@
                  keywords: 'recipe, yum, BBQ, barbecue, manly, art',
 				 site: 'The Manly Art of BBQ' %>
 <%= content_for :head do %>
+    <meta property="og:type" content="article" />
     <meta name="description" content="<%= @recipe.teaser %>" />
     <meta property="og:url" content="<%= polymorphic_url(@recipe) %>" />
-    <meta property="og:type" content="article" />
     <meta property="og:title" content="<%= @recipe.name %>" />
     <meta property="og:description" content="<%= @recipe.teaser %>" />
     <meta property="og:image" content="<%= rails_blob_url(@recipe.photo) if @recipe.photo.attached? %>" />
@@ -24,7 +24,7 @@
       data-layout="button_count">
     </div></div>
     <div class="text-center">
-      <%= image_tag url_for(@recipe.photo), style: "max-width: 50%; max-height: 200px;" %>
+      <%= image_tag url_for(@recipe.photo), style: "max-width: 50%; max-height: 200px;" if @recipe.photo.attached? %>
     </div>
     <h3 class="text-center">
       <% if @recipe.beef %>

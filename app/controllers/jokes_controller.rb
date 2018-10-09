@@ -14,7 +14,7 @@ class JokesController < ApplicationController
   end
 
   def update
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
     if @joke.update_attributes(joke_params)
       flash[:notice] = "Bam! You just made funny happen."
       redirect_to home_jokes_path
@@ -25,19 +25,19 @@ class JokesController < ApplicationController
   end
 
   def edit
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
     @joke.save
   end
 
   def destroy
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
     @joke.destroy
     flash[:alert] = "Poof! That joke is no more."
     redirect_to home_jokes_path
   end
 
   def show
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
   end
 
   def index
@@ -46,7 +46,7 @@ class JokesController < ApplicationController
   end
 
   def approve
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
     @joke.update_attributes(approved: true)
     @joke.user.manpoints += 5
     @joke.save
@@ -55,7 +55,7 @@ class JokesController < ApplicationController
   end
 
   def reject
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
     @joke.update_attributes(rejected: true)
     @joke.user.manpoints -= 5
     @joke.save
@@ -64,7 +64,7 @@ class JokesController < ApplicationController
   end
 
   def vote_up
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
 
     if !current_user.voted_on?(@joke)
       current_user.vote_for(@joke)
@@ -77,7 +77,7 @@ class JokesController < ApplicationController
   end
 
   def vote_down
-    @joke = Joke.find(params[:id])
+    @joke = Joke.friendly.find(params[:id])
 
 
     if !current_user.voted_on?(@joke)
