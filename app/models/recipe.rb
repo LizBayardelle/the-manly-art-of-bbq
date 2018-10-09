@@ -4,5 +4,6 @@ class Recipe < ActiveRecord::Base
   default_scope { order('rankpoints DESC')}
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
+  has_one_attached :photo
 
 end

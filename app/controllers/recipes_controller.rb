@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
+    @recipe.photo.attach(params[:photo])
     @recipe.save
     flash[:notice] = "Your recipe has been submitted!"
     redirect_to recipe_path(@recipe)
@@ -26,6 +27,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @recipe.photo.attach(params[:photo])
     @recipe.save
   end
 
@@ -92,6 +94,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:user, :name, :instructions, :beef, :chicken, :fish, :other_meat, :veggies, :approved, :rejected, :rankpoints)
+    params.require(:recipe).permit(:user, :name, :instructions, :beef, :chicken, :fish, :other_meat, :veggies, :approved, :rejected, :rankpoints, :photo)
   end
 end

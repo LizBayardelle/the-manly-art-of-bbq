@@ -288,7 +288,10 @@ ol.big-text li {
 	margin-bottom: 20px;
 }
 
-
+.trix-content, trix-toolbar .trix-button {
+  background-color: $transparent-white;
+  color: black;
+}
 
 
 
