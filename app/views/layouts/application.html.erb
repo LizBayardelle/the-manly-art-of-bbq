@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= yield(:page_title) %></title>
+  <%= if content_for?(:head) then yield(:head) end %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -11,6 +12,15 @@
   <%= display_meta_tags description: 'Welcome to the Manly Art of BBQ, the online knowledge stockpile of all things manly. This includes, but is not limited to, how to cook great barbecue.',
                    keywords: 'BBQ, barbecue, manly, art',
                    site: 'The Manly Art of BBQ' %>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
 

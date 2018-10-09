@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @recipe.photo.attach(params[:photo])
+    # @recipe.photo.attach(params[:photo])
     @recipe.save
   end
 
@@ -94,6 +94,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:user, :name, :instructions, :beef, :chicken, :fish, :other_meat, :veggies, :approved, :rejected, :rankpoints, :photo)
+    params.require(:recipe).permit(:user, :name, :teaser, :instructions, :beef, :chicken, :fish, :other_meat, :veggies, :approved, :rejected, :rankpoints, :photo)
   end
 end

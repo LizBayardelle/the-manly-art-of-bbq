@@ -15,6 +15,9 @@
         <%= f.label "Recipe Name" %>
         <%= f.text_field :name, class: "form-control" %>
 
+        <%= f.label "Quick Description" %>
+        <%= f.text_area :teaser, class: "form-control", placeholder: "e.g. This recipe is my go-to when I'm trying to impress people with my grilling prowess..." %>
+
         <%= f.label "Steps to Deliciousness" %>
         <%= f.trix_editor :instructions %>
 
