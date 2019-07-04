@@ -1,4 +1,6 @@
 class SuggestionsController < ApplicationController
+  invisible_captcha only: [:create], honeypot: :subtitle
+
   def index
     @suggestions = Suggestion.where(archived: false)
     @archived_suggestions = Suggestion.where(archived: true)

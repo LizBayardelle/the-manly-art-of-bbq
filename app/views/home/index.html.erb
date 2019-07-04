@@ -65,6 +65,7 @@
 
                 <div class="field col-sm-6" style="padding-top: 10px">
                   <%= f.select :page, options_for_select([["General Suggestion", "General Suggestion"],["Improve Man Rules", "Man Rules"],["Improve BBQ", "Improve BBQ"],["Improve Lifehacks", "Improve Lifehacks"],["New Feature", "New Feature"],["Mancard Ideas", "Mancard Ideas"],["Bug Report", "Bug Report"]]), {}, {class: "form-control"} %>
+                  <%= f.invisible_captcha :subtitle %>
                 </div>
 
                 <div class="col-sm-6 text-center">

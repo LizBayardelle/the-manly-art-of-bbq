@@ -718,6 +718,8 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     ice_cube (0.16.3)
+    invisible_captcha (0.12.1)
+      rails (>= 3.2.0)
     ionicons-rails (2.0.0)
     jmespath (1.4.0)
     jquery-rails (4.3.3)
@@ -888,6 +890,7 @@ DEPENDENCIES
   figaro
   friendly_id (~> 5.1.0)
   ice_cube
+  invisible_captcha
   ionicons-rails
   jquery-rails
   magnific-popup-rails (~> 1.1.0)
@@ -919,4 +922,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.5
+   1.16.6
